@@ -1,1 +1,2 @@
 - Add api to query ingredients
+- The app must show multiple users recipes
