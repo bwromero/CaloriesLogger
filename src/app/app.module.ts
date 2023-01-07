@@ -11,6 +11,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { LoginComponent } from './auth/login/login.component';
 import { BmiComponent } from './bmi/bmi.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { SocialMediaButtonsComponent } from './shared/social-media-buttons/social-media-buttons.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RegisterComponent } from './auth/register/register.component';
     LoginComponent,
     BmiComponent,
     RegisterComponent,
+    SocialMediaButtonsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
