@@ -10,6 +10,7 @@ import { RecipeItemComponent } from './shared/recipe-item/recipe-item.component'
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { LoginComponent } from './auth/login/login.component';
 import { BmiComponent } from './bmi/bmi.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BmiComponent } from './bmi/bmi.component';
     RecipeDetailComponent,
     LoginComponent,
     BmiComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

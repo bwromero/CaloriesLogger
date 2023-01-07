@@ -9,14 +9,14 @@
       class="nav col-4 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
     >
       <li>
-        <a href="#" class="nav-link px-4 text-white"><h4>Recipes</h4></a>
+        <a href="#" class="nav-link px-4 text-white"><h5>Recipes</h5></a>
       </li>
       <li>
-        <a href="#" class="nav-link px-4 text-white"><h4>BMI</h4></a>
+        <a href="#" class="nav-link px-4 text-white"><h5>BMI</h5></a>
       </li>
       <li>
         <a href="#" class="nav-link px-4 text-white"
-          ><h4>Calories Burned</h4></a
+          ><h5>Calories Burned</h5></a
         >
       </li>
     </ul>
@@ -29,7 +29,9 @@
       >
         Login
       </button>
-      <button type="button" class="btn btn-danger">Sign-up</button>
+      <button type="button" class="btn btn-danger" [routerLink]="['/register']">
+        Register
+      </button>
     </div>
   </div>
 </header>
