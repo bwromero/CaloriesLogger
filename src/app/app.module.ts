@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { BmiComponent } from './bmi/bmi.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { SocialMediaButtonsComponent } from './shared/social-media-buttons/social-media-buttons.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SocialMediaButtonsComponent } from './shared/social-media-buttons/socia
     BmiComponent,
     RegisterComponent,
     SocialMediaButtonsComponent,
+    RecipeEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

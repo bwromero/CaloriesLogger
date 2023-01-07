@@ -4,6 +4,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const appRouter: Routes = [
   {
@@ -16,14 +17,17 @@ const appRouter: Routes = [
     component: RecipesComponent,
     children: [],
   },
-
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
   {
     path: 'recipeDetail',
     component: RecipeDetailComponent,
+  },
+  {
+    path: 'recipeEdit',
+    component: RecipeEditComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: 'login',
