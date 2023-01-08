@@ -13,6 +13,7 @@ import { BmiComponent } from './bmi/bmi.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { SocialMediaButtonsComponent } from './shared/social-media-buttons/social-media-buttons.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     SocialMediaButtonsComponent,
     RecipeEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

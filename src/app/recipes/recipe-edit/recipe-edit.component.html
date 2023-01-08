@@ -133,18 +133,21 @@
       </div>
 
       <!-- image upload and preview -->
-      <div class="d-flex justify-content-start col-6">
+      <div class="d-flex flex-column gap-4 justify-content-start col-6">
         <div class="mb-5 col-8">
-          <h4>Upload picture</h4>
-
+          <label for="imageInput"><h4>Select Image</h4></label>
           <input
-            class="form-control"
             type="file"
-            id="formFile"
-            (onchange)="preview($event)"
+            class="form-control-file"
+            id="imageInput"
+            accept="image/*"
+            (change)="previewImage($event)"
           />
         </div>
-        <img id="frame" src="" class="img-fluid" />
+
+        <div class="preview-container">
+          <img [src]="imageUrl" class="img-fluid" />
+        </div>
       </div>
     </div>
 

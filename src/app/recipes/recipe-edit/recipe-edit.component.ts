@@ -6,13 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-edit.component.css'],
 })
 export class RecipeEditComponent implements OnInit {
+  imageUrl: string | ArrayBuffer;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  preview(event) {
-    let frame = document.getElementById('frame') as HTMLImageElement;
+  previewImage(event) {
+    const file = event.target.files[0];
 
-    frame.src = URL.createObjectURL(event.target.files[0]);
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      this.imageUrl = '';
+    }
   }
 }

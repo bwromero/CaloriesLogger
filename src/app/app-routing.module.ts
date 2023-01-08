@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { BmiComponent } from './bmi/bmi.component';
 
 const appRouter: Routes = [
   {
@@ -24,6 +25,10 @@ const appRouter: Routes = [
   {
     path: 'recipeEdit',
     component: RecipeEditComponent,
+  },
+  {
+    path: 'bmi',
+    component: BmiComponent,
   },
   {
     path: 'register',
