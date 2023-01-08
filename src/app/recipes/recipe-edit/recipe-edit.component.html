@@ -1,6 +1,6 @@
 <div class="container">
   <!-- Back button -->
-  <div class="col-xs-3 col-sm-3 col-md-12 col-lg-5 mt-4 mb-4">
+  <div class="col-xs-3 col-sm-3 col-md-12 col-lg-5 mt-4 mb-5">
     <button
       type="button"
       class="col-3 btn btn-danger btn-lg"
@@ -11,11 +11,11 @@
   </div>
 
   <h1>Create Recipe</h1>
-  <div class="d-flex justify-content-start">
-    <!-- Form -->
-    <div class="col-7">
-      <form>
-        <div class="mb-3 col-6">
+  <!-- Form -->
+  <form>
+    <div class="d-flex">
+      <div class="d-flex flex-column col-8">
+        <div class="mb-3 col-4">
           <label for="exampleInputEmail1" class="form-label">Name</label>
           <input
             type="text"
@@ -26,21 +26,21 @@
           />
         </div>
 
-        <div class="d-flex gap-2">
-          <div class="mb-3 col-4">
+        <div class="mb-3 col-7">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            class="form-control"
+            rows="7"
+            id="description"
+            placeholder="Description of your recipe....."
+          ></textarea>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-2">
             <label for="exampleInputEmail1" class="form-label"
-              >Ingredient</label
+              >Time (min)</label
             >
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputEmail1"
-              placeholder="Ex. Banana"
-              aria-describedby="emailHelp"
-            />
-          </div>
-          <div class="mb-3 col-1">
-            <label for="exampleInputEmail1" class="form-label">Quantity</label>
             <input
               type="number"
               class="form-control"
@@ -50,56 +50,106 @@
           </div>
 
           <div class="mb-3 col-2">
-            <label for="exampleInputEmail1" class="form-label"
-              >Weight (gr)</label
-            >
-            <input
-              type="number"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-            />
+            <label class="form-label" for="typeNumber">Servings</label>
+            <input type="number" id="typeNumber" class="form-control" />
           </div>
 
-          <button type="button" class="btn btn-success">Add</button>
+          <div class="d-flex gap-2">
+            <div class="mb-3 col-4">
+              <label for="exampleInputEmail1" class="form-label"
+                >Ingredient</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                placeholder="Ex. Banana"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3 col-1">
+              <label for="exampleInputEmail1" class="form-label"
+                >Quantity</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+
+            <div class="mb-3 col-2">
+              <label for="exampleInputEmail1" class="form-label"
+                >Weight (gr)</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center pt-3">
+              <button type="button" class="btn btn-success btn-sm add-btn-zoom">
+                Add
+              </button>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column gap-2 col-5">
+            <div class="d-flex gap-2 border-bottom justify-content-between">
+              <span> Cras justo odio asdfsdfsfsfsdf</span>
+              <div class="d-flex gap-2">
+                <a href=""><i class="bi bi-pencil"></i></a>
+                <a href=""><i class="bi bi-trash3 text-danger"></i></a>
+              </div>
+            </div>
+            <div class="d-flex gap-2 border-bottom justify-content-between">
+              <span> Cras justo odio asdfsdfsfsfsdf</span>
+              <div class="d-flex gap-2">
+                <a href=""><i class="bi bi-pencil"></i></a>
+                <a href=""><i class="bi bi-trash3 text-danger"></i></a>
+              </div>
+            </div>
+            <div class="d-flex gap-2 border-bottom justify-content-between">
+              <span>sss</span>
+              <div class="d-flex gap-2">
+                <a href=""><i class="bi bi-pencil"></i></a>
+                <a href=""><i class="bi bi-trash3 text-danger"></i></a>
+              </div>
+            </div>
+
+            <div class="d-flex gap-2 border-bottom justify-content-between">
+              <span>SSSSSSASASASASSAsaassaasa </span>
+              <div class="d-flex gap-2">
+                <a href=""><i class="bi bi-pencil"></i></a>
+                <a href=""><i class="bi bi-trash3 text-danger"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="mb-3 col-2">
-          <label for="exampleInputEmail1" class="form-label">Time</label>
+      </div>
+
+      <!-- image upload and preview -->
+      <div class="d-flex justify-content-start col-6">
+        <div class="mb-5 col-8">
+          <h4>Upload picture</h4>
+
           <input
-            type="number"
             class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            type="file"
+            id="formFile"
+            (onchange)="preview($event)"
           />
         </div>
-
-        <div class="mb-3 col-2">
-          <label class="form-label" for="typeNumber">Serving</label>
-          <input type="number" id="typeNumber" class="form-control" />
-        </div>
-
-        <div class="mb-3 col-10">
-          <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" rows="7" id="description"></textarea>
-        </div>
-        <button class="col-3 btn btn-lg btn-success" type="submit">
-          Create
-        </button>
-      </form>
-    </div>
-    <!-- image upload and preview -->
-    <div class="d-flex justify-content-start">
-      <div class="mb-5">
-        <h4>Upload picture</h4>
-
-        <input
-          class="form-control"
-          type="file"
-          id="formFile"
-          (onchange)="preview($event)"
-        />
+        <img id="frame" src="" class="img-fluid" />
       </div>
-      <img id="frame" src="" class="img-fluid" />
     </div>
-  </div>
+
+    <div class="row justify-content-center mt-5 mb-5">
+      <button class="col-2 btn btn-lg btn-success" type="submit">Create</button>
+    </div>
+  </form>
 </div>
