@@ -14,6 +14,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { SocialMediaButtonsComponent } from './shared/social-media-buttons/social-media-buttons.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BmrComponent } from './bmr/bmr.component';
+import { CaloriesBurnedComponent } from './calories-burned/calories-burned.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     SocialMediaButtonsComponent,
     RecipeEditComponent,
+    BmrComponent,
+    CaloriesBurnedComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

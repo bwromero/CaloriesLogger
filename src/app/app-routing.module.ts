@@ -6,6 +6,8 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RegisterComponent } from './auth/register/register.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { BmiComponent } from './bmi/bmi.component';
+import { BmrComponent } from './bmr/bmr.component';
+import { CaloriesBurnedComponent } from './calories-burned/calories-burned.component';
 
 const appRouter: Routes = [
   {
@@ -29,6 +31,14 @@ const appRouter: Routes = [
   {
     path: 'bmi',
     component: BmiComponent,
+  },
+  {
+    path: 'bmr',
+    component: BmrComponent,
+  },
+  {
+    path: 'caloriesBurned',
+    component: CaloriesBurnedComponent,
   },
   {
     path: 'register',
