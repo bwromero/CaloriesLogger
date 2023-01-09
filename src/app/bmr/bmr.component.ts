@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bmr.component.css'],
 })
 export class BmrComponent implements OnInit {
-  weight;
-  height;
-  age;
-  gender;
-  bmr;
+  weight: number;
+  height: number;
+  age: number;
+  gender: string;
+  activityLevel: string;
+  bmr: number;
 
   constructor() {}
 
@@ -18,11 +19,37 @@ export class BmrComponent implements OnInit {
 
   calculateBMR() {
     let bmr: number;
+    let genderValue: number;
+
     if (this.gender === 'male') {
-      bmr = 66 + 13.7 * this.weight + 5 * this.height - 6.8 * this.age;
+      genderValue = 5;
+    } else if (this.gender === 'female') {
+      genderValue = -161;
     } else {
-      bmr = 655 + 9.6 * this.weight + 1.8 * this.height - 4.7 * this.age;
+      throw new Error('Invalid gender');
     }
-    this.bmr = bmr;
+
+    this.bmr =
+      10 * this.weight + 6.25 * this.height - 5 * this.age + genderValue;
+
+    switch (this.activityLevel) {
+      case 'sedentary':
+        this.bmr *= 1.2;
+        break;
+      case 'light':
+        this.bmr *= 1.375;
+        break;
+      case 'moderate':
+        this.bmr *= 1.55;
+        break;
+      case 'high':
+        this.bmr *= 1.725;
+        break;
+      case 'very high':
+        this.bmr *= 1.9;
+        break;
+      default:
+        throw new Error('Invalid activity level');
+    }
   }
 }

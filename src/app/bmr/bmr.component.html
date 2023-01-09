@@ -1,49 +1,97 @@
-<div class="container h-100 d-flex justify-content-center align-items-center">
-  <form class="w-50">
-    <div class="form-group">
-      <label for="weight">Weight (kg)</label>
-      <input
-        type="number"
-        class="form-control"
-        id="weight"
-        [(ngModel)]="weight"
-        name="weight"
-      />
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Calculate Your BMR</h2>
+          <form (ngSubmit)="calculateBMR()">
+            <div class="form-group">
+              <label for="weightInput">Weight (kg)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="weightInput"
+                [(ngModel)]="weight"
+                name="weight"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="heightInput">Height (cm)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="heightInput"
+                [(ngModel)]="height"
+                name="height"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="ageInput">Age</label>
+              <input
+                type="number"
+                class="form-control"
+                id="ageInput"
+                [(ngModel)]="age"
+                name="age"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="genderInput">Gender</label>
+              <select
+                class="form-control"
+                id="genderInput"
+                [(ngModel)]="gender"
+                name="gender"
+                required
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="activityLevelInput">Activity level</label>
+              <select
+                class="form-control"
+                id="activityLevelInput"
+                [(ngModel)]="activityLevel"
+                name="activityLevel"
+                required
+              >
+                <option value="sedentary">
+                  Sedentary (little or no exercise)
+                </option>
+                <option value="light">Light (Exercise 1-3 times/week)</option>
+                <option value="moderate">
+                  Moderate (Exercise 4-5 times/week)
+                </option>
+                <option value="high">
+                  High (Daily exercise or intense exercise 3-4 times/week)
+                </option>
+                <option value="veryHigh">
+                  Very high (Intense exercise 6-7 times/week)
+                </option>
+              </select>
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-success mt-4">
+              Calculate BMR
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="height">Height (cm)</label>
-      <input
-        type="number"
-        class="form-control"
-        id="height"
-        [(ngModel)]="height"
-        name="height"
-      />
+    <div class="col-md-6" *ngIf="bmr">
+      <div class="card mt-3 mt-md-0">
+        <div class="card-body">
+          <h2 class="card-title text-center">Your BMR</h2>
+          <h1 class="display-4 text-center">
+            {{ bmr | number : "1.0-0" }} kcal a day
+          </h1>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="age">Age</label>
-      <input
-        type="number"
-        class="form-control"
-        id="age"
-        [(ngModel)]="age"
-        name="age"
-      />
-    </div>
-    <div class="form-group">
-      <label for="gender">Gender</label>
-      <select
-        class="form-control"
-        id="gender"
-        [(ngModel)]="gender"
-        name="gender"
-      >
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary" (click)="calculateBMR()">
-      Calculate BMR
-    </button>
-  </form>
+  </div>
 </div>
