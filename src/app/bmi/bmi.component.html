@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card">
         <div class="card-body">
           <h2 class="card-title text-center">Calculate Your BMI</h2>
@@ -62,7 +62,7 @@
       <div class="card mt-3 mt-md-0">
         <div class="card-body">
           <h2 class="card-title text-center">Your BMI</h2>
-          <h1 class="display-4 text-center">{{ bmi }}</h1>
+          <h1 class="display-4 text-center">{{ bmi | number : "1.2-2" }}</h1>
           <p class="lead text-center">
             This is considered <strong>{{ bmiCategory }}</strong>
           </p>
