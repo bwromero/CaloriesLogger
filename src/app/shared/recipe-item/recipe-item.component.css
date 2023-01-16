@@ -11,3 +11,11 @@
   -webkit-transform: scale(1.1, 1.2);
   -moz-transform: scale(1.1, 1.2);
 }
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card {
+  transition: trasform 3s;
+}

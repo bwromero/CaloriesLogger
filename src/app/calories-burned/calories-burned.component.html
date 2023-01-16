@@ -1,46 +1,66 @@
-<div class="container h-100 d-flex justify-content-center align-items-center">
-  <form class="w-50">
-    <div class="form-group">
-      <label for="weight">Weight (kg)</label>
-      <input
-        type="number"
-        class="form-control"
-        id="weight"
-        [(ngModel)]="weight"
-        name="weight"
-      />
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Calories burned</h2>
+          <form (ngSubmit)="calculateCaloriesBurned()">
+            <div class="form-group">
+              <label for="weightInput">Weight (kg)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="weightInput"
+                [(ngModel)]="weight"
+                name="weight"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="activityLevelInput">Activity</label>
+              <select
+                class="form-control"
+                id="activityInput"
+                [(ngModel)]="activity"
+                name="activity"
+                required
+              >
+                <option value="walking">Walking</option>
+                <option value="jogging">Jogging</option>
+                <option value="skipping_rope">Skipping rope</option>
+                <option value="swimming">Swimming</option>
+                <option value="sexual_activity">Sexual activity</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="durationInput">Duration (min)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="durationInput"
+                [(ngModel)]="duration"
+                name="duration"
+                required
+              />
+            </div>
+            <button type="submit" class="w-100 btn btn-success mt-4">
+              Calculate calories
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="duration">Duration (minutes)</label>
-      <input
-        type="number"
-        class="form-control"
-        id="duration"
-        [(ngModel)]="duration"
-        name="duration"
-      />
+    <div class="col-md-6" *ngIf="caloriesBurned">
+      <div class="card mt-3 mt-md-0">
+        <div class="card-body">
+          <h2 class="card-title text-center">Calories Burned</h2>
+          <h1 class="display-4 text-center">
+            You burned {{ caloriesBurned | number : "1.0-0" }} kcal
+          </h1>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="activity">Activity</label>
-      <select
-        class="form-control"
-        id="activity"
-        [(ngModel)]="activity"
-        name="activity"
-      >
-        <option value="walking">Walking</option>
-        <option value="jogging">Jogging</option>
-        <option value="skipping_rope">Skipping Rope</option>
-        <option value="swimming">Swimming</option>
-        <option value="sexual_activity">Sexual Activity</option>
-      </select>
-    </div>
-    <button
-      type="submit"
-      class="btn btn-primary"
-      (click)="calculateCaloriesBurned()"
-    >
-      Calculate Calories Burned
-    </button>
-  </form>
+  </div>
 </div>
