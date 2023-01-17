@@ -8,12 +8,18 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { BmiComponent } from './bmi/bmi.component';
 import { BmrComponent } from './bmr/bmr.component';
 import { CaloriesBurnedComponent } from './calories-burned/calories-burned.component';
+import { CaloriesTrackingComponent } from './calories-tracking/calories-tracking.component';
 
 const appRouter: Routes = [
   {
     path: '',
-    redirectTo: 'recipes',
+    redirectTo: 'calories-tracking',
     pathMatch: 'full',
+  },
+  {
+    path: 'calories-tracking',
+    component: CaloriesTrackingComponent,
+    children: [],
   },
   {
     path: 'recipes',

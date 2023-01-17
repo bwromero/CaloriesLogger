@@ -16,6 +16,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BmrComponent } from './bmr/bmr.component';
 import { CaloriesBurnedComponent } from './calories-burned/calories-burned.component';
+import { CaloriesTrackingComponent } from './calories-tracking/calories-tracking.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CaloriesBurnedComponent } from './calories-burned/calories-burned.compo
     RecipeEditComponent,
     BmrComponent,
     CaloriesBurnedComponent,
+    CaloriesTrackingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
