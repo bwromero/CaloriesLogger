@@ -1,11 +1,3 @@
-.item-icons-size {
-  font-size: x-large;
-}
-
-.icon-span-size {
-  font-size: x-large;
-}
-
 .btn-zoom:hover {
   transform: scale(1.1, 1.2);
   -webkit-transform: scale(1.1, 1.2);
@@ -14,6 +6,7 @@
 
 .card:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .card {

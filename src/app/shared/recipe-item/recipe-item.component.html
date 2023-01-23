@@ -1,65 +1,24 @@
-<div class="card shadow-sm">
-  <svg
-    class="card-img-top"
-    width="100%"
-    height="200"
-    xmlns="http://www.w3.org/2000/svg"
-    role="img"
-    aria-label="Placeholder: صورة مصغرة"
-    preserveAspectRatio="xMidYMid slice"
-    focusable="false"
-  >
-    <title>Strawberry Waffle</title>
-    <rect width="100%" height="100%" fill="#55595c"></rect>
-  </svg>
+<div class="card shadow-md" (click)="goToRecipeDetail()">
+  <img class="card-img-top" [src]="recipe.imagePath" alt="Card image cap" />
+
+  <title>Recipe</title>
 
   <div class="card-body px-3">
     <h5 class="card-title d-flex justify-content-between fw-bold py-2">
-      Strawberry Waffle
-      <div class="d-flex gap-2">
-        <a href=""><i class="bi bi-pencil-fill"></i></a>
-        <a href=""><i class="bi bi-trash3-fill text-danger"></i> </a>
-      </div>
+      {{ recipe.name }}
     </h5>
     <hr class="m-1" />
 
-    <div class="row justify-content-between">
-      <div class="col-4">
-        <span class="d-flex align-items-center">
-          <i class="bi bi-alarm item-icons-size"></i>
-          <span class="m-2 fs-5 fst-italic">20</span>
-        </span>
-        <p class="fs-7 fw-bold">Minutes</p>
-      </div>
-      <div class="col-4">
-        <span class="d-flex align-items-center">
-          <i class="bi bi-book"></i>
-          <span class="m-2 fs-5 fst-italic">4</span>
-        </span>
-        <p class="fs-6 fw-bold">Ingredients</p>
-      </div>
-      <div class="col-4">
-        <span class="d-flex align-items-center">
-          <i class="bi bi-person item-icons-size"></i>
-          <span class="m-2 fs-5 fst-italic">2</span>
-        </span>
-        <p class="fs-6 fw-bold">Serving</p>
-      </div>
-    </div>
-
     <p class="card-text lh-sm">
-      This recipe is a test recipe text text This recipe is a test recipe text
-      text This recipe is a text text text.....
+      {{ recipe.description }}
     </p>
-
-    <div class="d-flex justify-content-center py-1">
-      <button
-        class="btn btn-md btn-danger col-10 btn-zoom"
-        type="button"
-        [routerLink]="['/recipeDetail']"
-      >
-        View Recipe
-      </button>
+    <div class="row justify-content-between">
+      <div class="col-sm-3 col-md-5">
+        <i class="bi bi-clock">{{ recipe.time }} Min </i>
+      </div>
+      <div class="col-sm-3 col-md-5">
+        <i class="bi bi-fire">{{ recipe.calories }} Kcal</i>
+      </div>
     </div>
   </div>
 </div>
