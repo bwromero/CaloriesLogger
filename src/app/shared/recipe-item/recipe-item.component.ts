@@ -16,15 +16,6 @@ export class RecipeItemComponent implements OnInit {
   ngOnInit(): void {}
 
   toDetail() {
-    this.router.navigate(['/recipeDetail']).then(
-      (nav) => {
-        console.log(nav);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-
     this.goToRecipeDetail.emit();
   }
 }

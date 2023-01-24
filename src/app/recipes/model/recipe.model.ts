@@ -11,6 +11,7 @@ export class Recipe {
   public imagePath: string;
   public ingredients: Ingredient[];
   public calories = 0;
+  public steps: string[];
 
   constructor(
     id: number,
@@ -18,7 +19,8 @@ export class Recipe {
     description: string,
     time: number,
     imagePath: string,
-    ingredients: Ingredient[]
+    ingredients: Ingredient[],
+    steps: string[]
   ) {
     this.id = id;
     this.name = name;
@@ -26,6 +28,7 @@ export class Recipe {
     this.time = time;
     this.imagePath = imagePath;
     this.ingredients = ingredients;
+    this.steps = steps;
     this.getCalories();
   }
 
@@ -33,6 +36,5 @@ export class Recipe {
     this.ingredients.forEach((ingredient) => {
       this.calories += ingredient.calories;
     });
-    console.log(this.calories);
   }
 }
