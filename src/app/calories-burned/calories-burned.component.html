@@ -1,11 +1,11 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-6 col-sm-3 align-items-end">
       <div class="card">
         <div class="card-body">
-          <h2 class="card-title text-center">Calories burned</h2>
+          <h2 class="card-title text-center">Calories Burned</h2>
           <form (ngSubmit)="calculateCaloriesBurned()">
-            <div class="form-group">
+            <div class="form-group col-5">
               <label for="weightInput">Weight (kg)</label>
               <input
                 type="number"
@@ -17,7 +17,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-7">
               <label for="activityLevelInput">Activity</label>
               <select
                 class="form-control"
@@ -34,7 +34,7 @@
               </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-5">
               <label for="durationInput">Duration (min)</label>
               <input
                 type="number"
@@ -52,13 +52,15 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6" *ngIf="caloriesBurned">
+    <div class="col-md-4" *ngIf="caloriesBurned">
       <div class="card mt-3 mt-md-0">
         <div class="card-body">
-          <h2 class="card-title text-center">Calories Burned</h2>
+          <h2 class="card-title text-center">You burned</h2>
           <h1 class="display-4 text-center">
-            You burned {{ caloriesBurned | number : "1.0-0" }} kcal
+            {{ caloriesBurned | number : "1.0-0" }} kcal
           </h1>
+
+          <p class="lead text-center">by {{ activity }}</p>
         </div>
       </div>
     </div>

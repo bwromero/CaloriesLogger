@@ -22,12 +22,7 @@
         >
       </li>
       <li>
-        <a href="#" class="nav-link px-4 text-white" [routerLink]="['/bmr']"
-          >BMR</a
-        >
-      </li>
-      <li>
-        <a href="#" class="nav-link px-4 text-white" [routerLink]="['/bmr']"
+        <a href="#" class="nav-link px-4 text-white" [routerLink]="['/tdee']"
           >TDEE</a
         >
       </li>
@@ -42,17 +37,23 @@
       </li>
     </ul>
 
-    <div>
-      <button
-        type="button"
-        class="btn btn-outline-light me-2"
-        [routerLink]="['/login']"
-      >
-        Login
-      </button>
-      <button type="button" class="btn btn-danger" [routerLink]="['/register']">
-        Register
-      </button>
+    <div class="row justify-content-end">
+      <div class="col">
+        <button
+          type="button"
+          class="btn btn-outline-light me-2"
+          [routerLink]="['/login']"
+        >
+          Login
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          [routerLink]="['/register']"
+        >
+          Register
+        </button>
+      </div>
     </div>
   </div>
 </header>

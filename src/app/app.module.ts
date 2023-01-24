@@ -14,11 +14,11 @@ import { RegisterComponent } from './auth/register/register.component';
 import { SocialMediaButtonsComponent } from './shared/social-media-buttons/social-media-buttons.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BmrComponent } from './bmr/bmr.component';
 import { CaloriesBurnedComponent } from './calories-burned/calories-burned.component';
 import { CaloriesTrackingComponent } from './calories-tracking/calories-tracking.component';
 import { FoodItemComponent } from './shared/food-item/food-item.component';
 import { MealCardComponent } from './shared/meal-card/meal-card.component';
+import { TdeeComponent } from './tdee/tdee.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +30,15 @@ import { MealCardComponent } from './shared/meal-card/meal-card.component';
     RecipeDetailComponent,
     LoginComponent,
     BmiComponent,
+    TdeeComponent,
     RegisterComponent,
     SocialMediaButtonsComponent,
     RecipeEditComponent,
-    BmrComponent,
     CaloriesBurnedComponent,
     CaloriesTrackingComponent,
     FoodItemComponent,
     MealCardComponent,
+    TdeeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

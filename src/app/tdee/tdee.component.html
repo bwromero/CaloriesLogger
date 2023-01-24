@@ -1,11 +1,12 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-6 col-sm-3">
       <div class="card">
         <div class="card-body">
-          <h2 class="card-title text-center">Calculate Your BMR</h2>
+          <h2 class="card-title text-center">Calculate Your TDEE</h2>
+
           <form (ngSubmit)="calculateBMR()">
-            <div class="form-group">
+            <div class="form-group col-5">
               <label for="weightInput">Weight (kg)</label>
               <input
                 type="number"
@@ -16,8 +17,8 @@
                 required
               />
             </div>
-            <div class="form-group">
-              <label for="heightInput">Height (cm)</label>
+            <div class="form-group col-5">
+              <label for="heightInput ">Height (cm)</label>
               <input
                 type="number"
                 class="form-control"
@@ -27,7 +28,7 @@
                 required
               />
             </div>
-            <div class="form-group">
+            <div class="form-group col-5">
               <label for="ageInput">Age</label>
               <input
                 type="number"
@@ -38,7 +39,7 @@
                 required
               />
             </div>
-            <div class="form-group">
+            <div class="form-group col-5">
               <label for="genderInput">Gender</label>
               <select
                 class="form-control"
@@ -76,20 +77,35 @@
                 </option>
               </select>
             </div>
+
+            <div class="form-group col-5">
+              <label for="bodyFatInput">Body Fat (optional)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="bodyFatInput"
+                [(ngModel)]="bodyFat"
+                name="bodyFat"
+                required
+              />
+            </div>
+
             <button type="submit" class="w-100 btn btn-success mt-4">
-              Calculate BMR
+              Calculate
             </button>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-md-6" *ngIf="bmr">
+    <div class="col-md-4" *ngIf="tdee">
       <div class="card mt-3 mt-md-0">
         <div class="card-body">
-          <h2 class="card-title text-center">Your BMR</h2>
+          <h2 class="card-title text-center">Your TDEE</h2>
           <h1 class="display-4 text-center">
-            {{ bmr | number : "1.0-0" }} kcal a day
+            {{ tdee | number : "1.0-0" }} Kcal
           </h1>
+
+          <p class="lead text-center">a day</p>
         </div>
       </div>
     </div>

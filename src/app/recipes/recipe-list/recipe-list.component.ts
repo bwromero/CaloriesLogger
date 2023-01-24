@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { Ingredient } from '../model/ingredient.model';
 import { Recipe } from '../model/recipe.model';
 
@@ -10,6 +11,7 @@ import { Recipe } from '../model/recipe.model';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
     new Recipe(
+      1,
       'Chinese Chicken',
       'Chinese Chicken with sweet and sour sauce',
       30,
@@ -20,6 +22,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      2,
       'Sausage Casserole',
       'Sausage Casserole with onion gravy',
       45,
@@ -30,6 +33,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      3,
       'Taco Meat Recipe',
       'Taco with minced beef and onion',
       60,
@@ -40,6 +44,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      4,
       'Egg delight',
       'Lightly toasted wraps with fresh eggs',
       120,
@@ -51,6 +56,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      5,
       'Fried EggPlant',
       'Eggplant daked with cheese',
       55,
@@ -61,6 +67,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      6,
       'Chinese Chicken',
       'Chinese Chicken with sweet and sour sauce',
       55,
@@ -71,6 +78,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      7,
       'Sausage Casserole',
       'Sausage Casserole with onion gravy',
       44,
@@ -81,6 +89,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      8,
       'Taco Meat Recipe',
       'Taco with minced beef and onion',
       33,
@@ -91,6 +100,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      9,
       'Egg delight',
       'Lightly toasted wraps with fresh eggs',
       22,
@@ -102,6 +112,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      10,
       'Fried EggPlant',
       'Eggplant daked with cheese',
       16,
@@ -112,6 +123,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      11,
       'Chinese Chicken',
       'Chinese Chicken with sweet and sour sauce',
       35,
@@ -122,6 +134,7 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
     new Recipe(
+      12,
       'Sausage Casserole',
       'Sausage Casserole with onion gravy',
       55,
@@ -132,7 +145,17 @@ export class RecipeListComponent implements OnInit {
       ]
     ),
   ];
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  goToRecipeDetail(recipe: Recipe) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        recipe: JSON.stringify(recipe),
+      },
+    };
+
+    this.router.navigate(['/recipeDetail'], navigationExtras);
+  }
 }

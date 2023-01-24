@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bmr',
-  templateUrl: './bmr.component.html',
-  styleUrls: ['./bmr.component.css'],
+  selector: 'app-tdee',
+  templateUrl: './tdee.component.html',
+  styleUrls: ['./tdee.component.css'],
 })
-export class BmrComponent implements OnInit {
+export class TdeeComponent implements OnInit {
   weight: number;
   height: number;
   age: number;
   gender: string;
   activityLevel: string;
-  bmr: number;
+  tdee: number;
+  bodyFat: number;
 
   constructor() {}
 
@@ -29,24 +30,24 @@ export class BmrComponent implements OnInit {
       throw new Error('Invalid gender');
     }
 
-    this.bmr =
+    this.tdee =
       10 * this.weight + 6.25 * this.height - 5 * this.age + genderValue;
 
     switch (this.activityLevel) {
       case 'sedentary':
-        this.bmr *= 1.2;
+        this.tdee *= 1.2;
         break;
       case 'light':
-        this.bmr *= 1.375;
+        this.tdee *= 1.375;
         break;
       case 'moderate':
-        this.bmr *= 1.55;
+        this.tdee *= 1.55;
         break;
       case 'high':
-        this.bmr *= 1.725;
+        this.tdee *= 1.725;
         break;
       case 'very high':
-        this.bmr *= 1.9;
+        this.tdee *= 1.9;
         break;
       default:
         throw new Error('Invalid activity level');

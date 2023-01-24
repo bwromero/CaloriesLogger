@@ -27,6 +27,7 @@
       <app-recipe-item
         *ngFor="let recipe of recipes"
         [recipe]="recipe"
+        (goToRecipeDetail)="goToRecipeDetail(recipe)"
       ></app-recipe-item>
     </div>
   </div>

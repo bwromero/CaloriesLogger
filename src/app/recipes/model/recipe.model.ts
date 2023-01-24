@@ -4,6 +4,7 @@ import { Ingredient } from './ingredient.model';
  * Recipe blueprint
  */
 export class Recipe {
+  public id: number;
   public name: string;
   public description: string;
   public time: number;
@@ -12,12 +13,14 @@ export class Recipe {
   public calories = 0;
 
   constructor(
+    id: number,
     name: string,
     description: string,
     time: number,
     imagePath: string,
     ingredients: Ingredient[]
   ) {
+    this.id = id;
     this.name = name;
     this.description = description;
     this.time = time;

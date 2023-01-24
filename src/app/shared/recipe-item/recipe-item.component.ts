@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Recipe } from 'src/app/recipes/model/recipe.model';
 
@@ -9,12 +9,13 @@ import { Recipe } from 'src/app/recipes/model/recipe.model';
 })
 export class RecipeItemComponent implements OnInit {
   @Input() recipe: Recipe;
+  @Output() goToRecipeDetail = new EventEmitter();
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  goToRecipeDetail() {
+  toDetail() {
     this.router.navigate(['/recipeDetail']).then(
       (nav) => {
         console.log(nav);
@@ -23,5 +24,7 @@ export class RecipeItemComponent implements OnInit {
         console.log(err);
       }
     );
+
+    this.goToRecipeDetail.emit();
   }
 }
