@@ -10,10 +10,11 @@ img {
 .card:hover {
   transform: scale3d(1.1, 1.1, 1);
   cursor: pointer;
+  background-color: lightgrey;
 }
 
 .card:hover::after {
-  opacity: 1;
+  opacity: 2;
 }
 
 .card:hover:focus {
