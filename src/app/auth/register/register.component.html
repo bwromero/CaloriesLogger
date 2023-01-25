@@ -1,20 +1,17 @@
-<div class="vh-100 d-flex justify-content-center align-items-center">
-  <div class="text-center">
-    <h1 class="h3 mb-3 fw-normal">Create an Account</h1>
-    <p>Sign up with your social media accout or email address</p>
-
-    <!-- Social media buttons -->
-    <app-social-media-buttons></app-social-media-buttons>
-
-    <div class="m-auto col-7">
+<div class="container">
+  <div class="row row-cols-1 justify-content-center pt-5">
+    <div class="col col-sm-6 col-md-5 col-lg-3">
+      <h1 class="h3 mb-3 fw-normal">Create an Account</h1>
+      <!-- divider -->
+      <div class="d-flex align-items-center">
+        <hr class="flex-grow-1" />
+        <div class="badge bg-white text-black">OR</div>
+        <hr class="flex-grow-1" />
+      </div>
+      <p>Sign up with your social media accout or email address</p>
+      <!-- Social media buttons -->
+      <app-social-media-buttons></app-social-media-buttons>
       <form>
-        <!-- divider -->
-        <div class="d-flex align-items-center">
-          <hr class="flex-grow-1" />
-          <div class="badge bg-secondary">OR</div>
-          <hr class="flex-grow-1" />
-        </div>
-
         <!-- Form -->
         <div class="form-floating mt-5">
           <input
