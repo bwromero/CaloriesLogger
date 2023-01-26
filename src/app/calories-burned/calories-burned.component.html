@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <div class="row">
+  <div class="row row-cols-1 row-cols-sm-3 justify-content-between">
     <div class="col-6 col-sm-3 align-items-end">
       <div class="card">
         <div class="card-body">
@@ -52,15 +52,49 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4" *ngIf="caloriesBurned">
+    <div class="col-12 col-sm-5 col-md-4 col-lg-3" *ngIf="caloriesBurned">
       <div class="card mt-3 mt-md-0">
         <div class="card-body">
           <h2 class="card-title text-center">You burned</h2>
           <h1 class="display-4 text-center">
-            {{ caloriesBurned | number : "1.0-0" }} kcal
+            {{ caloriesBurned | number : "1.0-0" }}
           </h1>
 
-          <p class="lead text-center">by {{ activity }}</p>
+          <p class="lead text-center">
+            <strong>Kcal</strong> by {{ activity }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-sm-12 col-md-4 pt-3 pt-md-0">
+      <div class="card mt-3 mt-md-0">
+        <div class="card-header">
+          <h2 class="card-title text-center">
+            Calories Burned by Physical Activity
+          </h2>
+        </div>
+        <div class="card-body">
+          <p>
+            <strong>Physical activity</strong>
+            is important for maintaining a healthy weight and overall
+            well-being. The number of calories burned during a specific activity
+            can vary depending on factors such as weight, intensity, and
+            duration. Here are approximate calorie burn rates for some common
+            activities:
+          </p>
+          <ul>
+            <li><strong>Walking (3.5 mph):</strong> 3.3 calories/minute</li>
+            <li><strong>Running (5 mph):</strong> 9.8 calories/minute</li>
+            <li><strong>Cycling (10-12 mph): </strong>8.6 calories/minute</li>
+            <li><strong>Sexual activity:</strong> 3-8 calories/minute</li>
+          </ul>
+          <p>
+            It's important to note that these are averages and actual calorie
+            burn can vary greatly depending on the individual. Engaging in
+            regular physical activity can help increase calorie burn and improve
+            overall health and fitness.
+          </p>
         </div>
       </div>
     </div>
