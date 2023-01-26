@@ -1,11 +1,11 @@
 <div class="container mt-3">
-  <div class="row justify-content-between">
-    <div class="col-12 col-sm-7 col-md-6 col-lg-4">
+  <div class="row row-cols-1 row-cols-sm-3 justify-content-between">
+    <div class="col-12 col-sm-5 col-md-4 col-lg-3">
       <div class="card">
         <div class="card-body">
           <h2 class="card-title text-center">Calculate Your BMI</h2>
           <form (ngSubmit)="calculateBMI()">
-            <div class="form-group col-5">
+            <div class="form-group">
               <label for="weightInput">Weight (kg)</label>
               <input
                 type="number"
@@ -16,7 +16,7 @@
                 required
               />
             </div>
-            <div class="form-group col-5">
+            <div class="form-group">
               <label for="heightInput">Height (cm)</label>
               <input
                 type="number"
@@ -27,7 +27,7 @@
                 required
               />
             </div>
-            <div class="form-group col-5">
+            <div class="form-group">
               <label for="ageInput">Age</label>
               <input
                 type="number"
@@ -38,7 +38,7 @@
                 required
               />
             </div>
-            <div class="form-group col-5">
+            <div class="form-group">
               <label for="genderInput">Gender</label>
               <select
                 class="form-control"
@@ -51,20 +51,58 @@
                 <option value="female">Female</option>
               </select>
             </div>
-            <button type="submit" class="w-75 btn btn-success mt-4">
+            <button type="submit" class="w-100 btn btn-success mt-4">
               Calculate
             </button>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-md-6" *ngIf="bmi">
+
+    <div class="col-12 col-sm-5 col-md-4 col-lg-3" *ngIf="bmi">
       <div class="card mt-3 mt-md-0">
         <div class="card-body">
           <h2 class="card-title text-center">Your BMI</h2>
           <h1 class="display-4 text-center">{{ bmi | number : "1.2-2" }}</h1>
           <p class="lead text-center">
             This is considered <strong>{{ bmiCategory }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-sm-6 col-md-4 pb-3">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">What is BMI?</h2>
+          <p>
+            Body Mass Index (BMI) is a measure of body fat based on a person's
+            weight and height. It is calculated by dividing a person's weight in
+            kilograms by the square of their height in meters.
+          </p>
+          <h4 class="text-center pt-2">BMI Ranges</h4>
+          <p>The following are the ranges for BMI:</p>
+          <ul>
+            <li>
+              <strong class="text-warning">Underweight:</strong> BMI less than
+              18.5
+            </li>
+            <li>
+              <strong class="text-success"> Normal weight:</strong> BMI between
+              18.5 and 24.9
+            </li>
+            <li>
+              <strong class="text-warning">Overweight:</strong> BMI between 25
+              and 29.9
+            </li>
+            <li>
+              <strong class="text-danger">Obese: </strong> BMI of 30 or greater
+            </li>
+          </ul>
+          <p>
+            It's important to note that these ranges are not definitive and
+            other factors such as muscle mass and overall health should be
+            considered when interpreting a person's BMI.
           </p>
         </div>
       </div>
