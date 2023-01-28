@@ -14,6 +14,8 @@
       id="form1"
       class="form-control"
       placeholder="Search...."
+      [(ngModel)]="searchText"
+      autocomplete="on"
       aria-label="Search"
     />
   </div>
@@ -22,7 +24,7 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
       <app-recipe-item
-        *ngFor="let recipe of recipes"
+        *ngFor="let recipe of recipes | filter : searchText"
         [recipe]="recipe"
         (goToRecipeDetail)="goToRecipeDetail(recipe)"
       ></app-recipe-item>

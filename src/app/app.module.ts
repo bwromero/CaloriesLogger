@@ -19,6 +19,8 @@ import { CaloriesTrackingComponent } from './calories-tracking/calories-tracking
 import { FoodItemComponent } from './shared/food-item/food-item.component';
 import { MealCardComponent } from './shared/meal-card/meal-card.component';
 import { TdeeComponent } from './tdee/tdee.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrLineComponent } from './shared/or-line/or-line.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,15 @@ import { TdeeComponent } from './tdee/tdee.component';
     FoodItemComponent,
     MealCardComponent,
     TdeeComponent,
+    OrLineComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -11,6 +11,7 @@ import { Recipe } from '../model/recipe.model';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
+  searchText;
 
   constructor(private router: Router, private recipeService: RecipeService) {}
 
