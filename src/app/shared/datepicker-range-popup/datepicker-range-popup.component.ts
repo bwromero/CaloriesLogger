@@ -28,13 +28,17 @@ export class DatepickerRangePopupComponent {
     this.model = this.calendar.getToday();
   }
 
-  navigate(increment: number) {
-    let nextDate = new NgbDate(
+  navigate(offset: number): void {
+    const newDate = new Date(
       this.model.year,
-      this.model.month,
-      this.model.day + increment
+      this.model.month - 1,
+      this.model.day + offset
     );
-    this.model = nextDate;
+    this.model = new NgbDate(
+      newDate.getFullYear(),
+      newDate.getMonth() + 1,
+      newDate.getDate()
+    );
   }
 
   get displayDate(): string {

@@ -7,13 +7,12 @@
         type="button"
       ></button>
       <input
-        class="form-control"
+        class="form-control text-center"
         name="dp"
         [(ngModel)]="model"
         ngbDatepicker
         #d="ngbDatepicker"
         (click)="d.toggle()"
-        [readonly]="true"
       />
       <button
         class="btn btn-outline-secondary bi bi-caret-right-fill"
