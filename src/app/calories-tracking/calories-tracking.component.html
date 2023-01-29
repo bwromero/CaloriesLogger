@@ -24,18 +24,9 @@
         </ul>
       </div>
 
-      <div class="input-group date py-4" id="datapicker">
-        <button><i class="bi bi-caret-left-fill"></i></button>
-        <input type="text" class="form-control" />
-        <span class="input-group-append">
-          <span class="input-group-text bg-white">
-            <i class="bi bi-calendar3"></i>
-          </span>
-        </span>
-        <button><i class="bi bi-caret-right-fill"></i></button>
-      </div>
+      <app-datepicker-range-popup></app-datepicker-range-popup>
 
-      <div>
+      <div class="col-md-12">
         <div *ngFor="let meal of meals">
           <app-meal-card [meal]="meal"></app-meal-card>
         </div>

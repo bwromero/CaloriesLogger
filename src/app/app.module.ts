@@ -21,6 +21,8 @@ import { MealCardComponent } from './shared/meal-card/meal-card.component';
 import { TdeeComponent } from './tdee/tdee.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrLineComponent } from './shared/or-line/or-line.component';
+import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatepickerRangePopupComponent } from './shared/datepicker-range-popup/datepicker-range-popup.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { OrLineComponent } from './shared/or-line/or-line.component';
     MealCardComponent,
     TdeeComponent,
     OrLineComponent,
+    DatepickerRangePopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,8 @@ import { OrLineComponent } from './shared/or-line/or-line.component';
     FormsModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
+    NgbModule,
+    NgbDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
