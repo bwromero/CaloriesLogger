@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row row-cols-sm-2 justify-content-between">
-    <div class="col-md-4">
-      <div class="dropdown">
+    <div class="col-md-4 order-2 order-sm-1">
+      <div class="dropdown py-3 pb-sm-3">
         <button
           class="btn btn-success dropdown-toggle w-25"
           type="button"
@@ -24,13 +24,18 @@
         </ul>
       </div>
 
-      <div class="col-md-12 pt-3">
+      <div class="col-md-12">
         <div *ngFor="let meal of meals">
           <app-meal-card [meal]="meal"></app-meal-card>
         </div>
         <div class="card">
           <div class="card-header">
-            <h5 class="card-title text-left">Excersice 500 kcal</h5>
+            <div class="row">
+              <div class="col-auto">
+                <h5 class="card-title text-left">Excercise:</h5>
+              </div>
+              <div class="col-auto">4000 kcal</div>
+            </div>
           </div>
           <div class="card-body">
             <div class="row justify-content-between">
@@ -43,9 +48,15 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="col order-1 order-sm-2">
       <app-datepicker-range-popup></app-datepicker-range-popup>
-      <div class="col-md-4"></div>
+
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Current day calories</h2>
+          <h1 class="display-4 text-center">5000 Kcal</h1>
+        </div>
+      </div>
     </div>
   </div>
 </div>
