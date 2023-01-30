@@ -1,6 +1,9 @@
 <div class="container mt-3">
-  <div class="row row-cols-sm-2 justify-content-between">
-    <div class="col-md-5 order-2 order-sm-1">
+  <div
+    class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-md-2 justify-content-around"
+  >
+    <div class="col col-md-6 col-lg-5 order-2 order-sm-2 order-md-1">
+      <!-- dropdown button -->
       <div class="dropdown py-3 pb-sm-3">
         <button
           class="btn btn-success dropdown-toggle w-25"
@@ -24,31 +27,39 @@
         </ul>
       </div>
 
-      <div class="col-md-12">
-        <div *ngFor="let meal of meals">
-          <app-meal-card [meal]="meal"></app-meal-card>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="row">
-              <div class="col-auto">
-                <p class="card-title text-left fw-bold">Excercise:</p>
-              </div>
-              <div class="col-auto">4000 kcal</div>
+      <!-- meals card -->
+
+      <div *ngFor="let meal of meals">
+        <app-meal-card [meal]="meal"></app-meal-card>
+      </div>
+
+      <!-- excersice card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-auto">
+              <p class="card-title text-left fw-bold">Excercise:</p>
             </div>
+            <div class="col-auto">4000 kcal</div>
           </div>
-          <div class="card-body">
-            <div class="row justify-content-between">
-              <p class="col-6">Running up that hill running up that hill</p>
-              <p class="col-auto">4555 min</p>
-              <p class="col-auto">3505 kcal</p>
-            </div>
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-between">
+            <p class="col-6">Running up that hill running up that hill</p>
+            <p class="col-auto">4555 min</p>
+            <p class="col-auto">3505 kcal</p>
+            <a
+              href="#"
+              class="col-auto bi bi-trash3"
+              style="color: red; cursor: pointer"
+            ></a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col order-1 order-sm-2">
+    <!-- date picker and total calories -->
+    <div class="col col-md-6 col-lg-4 order-1 order-sm-1 order-md-2">
       <app-datepicker-range-popup></app-datepicker-range-popup>
 
       <div class="card">
