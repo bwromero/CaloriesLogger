@@ -1,4 +1,4 @@
-<div class="card shadow-md" style="height: 360px" (click)="toDetail()">
+<div class="card border-0 shadow-md" style="height: 360px" (click)="toDetail()">
   <div class="image-container">
     <img class="card-img-top" [src]="recipe.imagePath" alt="Card image cap" />
   </div>
@@ -6,6 +6,7 @@
 
   <div class="card-body px-3">
     <p class="card-title fw-bold py-2">{{ recipe.name }}</p>
+
     <hr class="m-1" />
 
     <p class="card-text lh-sm">
