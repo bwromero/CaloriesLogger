@@ -29,6 +29,7 @@ import {
 import { DatepickerRangePopupComponent } from './shared/datepicker-range-popup/datepicker-range-popup.component';
 
 import { CustomDateFormatterService } from './services/custom-date-formatter.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CustomDateFormatterService } from './services/custom-date-formatter.ser
     TdeeComponent,
     OrLineComponent,
     DatepickerRangePopupComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

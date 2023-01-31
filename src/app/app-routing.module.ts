@@ -9,12 +9,18 @@ import { BmiComponent } from './bmi/bmi.component';
 import { CaloriesBurnedComponent } from './calories-burned/calories-burned.component';
 import { CaloriesTrackingComponent } from './calories-tracking/calories-tracking.component';
 import { TdeeComponent } from './tdee/tdee.component';
+import { HomeComponent } from './home/home.component';
 
 const appRouter: Routes = [
   {
     path: '',
     redirectTo: 'calories-tracking',
     pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [],
   },
   {
     path: 'calories-tracking',
