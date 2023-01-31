@@ -27,7 +27,7 @@ img:hover {
 
 .card {
   transition: transform 0.5s;
-  box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+  box-shadow: 4px 4px 6px 0 hsla(0, 0%, 0%, 0.4);
 }
 
 .card:hover {
