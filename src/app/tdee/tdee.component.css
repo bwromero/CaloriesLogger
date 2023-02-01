@@ -1,3 +1,14 @@
-#infoCard {
+#infoCard,
+.card {
   box-shadow: 0 -4px 8px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary-outline {
+  background-color: transparent;
+  border-color: #ccc;
 }
