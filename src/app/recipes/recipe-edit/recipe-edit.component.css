@@ -7,3 +7,13 @@
 .card {
   box-shadow: 0 -4px 8px 0 hsla(0, 0%, 0%, 0.2);
 }
+
+.btn-primary-outline {
+  background-color: transparent;
+  border-color: #ccc;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
