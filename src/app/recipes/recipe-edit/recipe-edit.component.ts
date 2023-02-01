@@ -25,4 +25,6 @@ export class RecipeEditComponent implements OnInit {
       this.imageUrl = '';
     }
   }
+
+  createRecipe() {}
 }
