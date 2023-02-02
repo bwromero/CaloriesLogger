@@ -1,3 +1,10 @@
+Features: 
+
 - Add api to query ingredients
 - The app must show multiple users recipes
 - Make it possible to share recipes and maybe the bmi scores or weight loss progress ecc
+
+Fixes: 
+
+- Fix tdee formula
+- 
