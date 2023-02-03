@@ -30,6 +30,7 @@ import { DatepickerRangePopupComponent } from './shared/datepicker-range-popup/d
 
 import { CustomDateFormatterService } from './services/custom-date-formatter.service';
 import { HomeComponent } from './home/home.component';
+import { FormButtonsComponent } from './shared/form-buttons/form-buttons.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { HomeComponent } from './home/home.component';
     OrLineComponent,
     DatepickerRangePopupComponent,
     HomeComponent,
+    FormButtonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { HomeComponent } from './home/home.component';
     Ng2SearchPipeModule,
     NgbModule,
     NgbDatepickerModule,
+    FormsModule,
   ],
   providers: [
     {

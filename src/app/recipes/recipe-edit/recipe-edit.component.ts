@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Recipe } from '../model/recipe.model';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-edit.component.css'],
 })
 export class RecipeEditComponent implements OnInit {
+  recipeName: string;
+  recipeDescription: string;
   imageUrl: string | ArrayBuffer;
+  recipeTime: number;
+  recipeCalories: number;
+  recipe: Recipe;
 
-  constructor() {}
+  constructor(private domSanitizer: DomSanitizer) {}
 
   ngOnInit(): void {}
 
@@ -26,5 +33,17 @@ export class RecipeEditComponent implements OnInit {
     }
   }
 
-  createRecipe() {}
+  createRecipe() {
+    this.recipe = new Recipe(
+      1,
+      this.recipeName,
+      this.recipeDescription,
+      this.recipeTime,
+      this.imageUrl,
+      null,
+      null
+    );
+
+    this.recipe.setCalories(this.recipeCalories);
+  }
 }
