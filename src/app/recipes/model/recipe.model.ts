@@ -8,7 +8,7 @@ export class Recipe {
   public name: string;
   public description: string;
   public time: number;
-  public imagePath: string | ArrayBuffer;
+  public imagePath: string;
   public ingredients: Ingredient[];
   public calories = 0;
   public steps: string[];
@@ -18,7 +18,7 @@ export class Recipe {
     name: string,
     description: string,
     time: number,
-    imagePath: string | ArrayBuffer,
+    imagePath: string,
     ingredients: Ingredient[] | null,
     steps: string[] | null
   ) {
@@ -29,7 +29,8 @@ export class Recipe {
     this.imagePath = imagePath;
     this.ingredients = ingredients;
     this.steps = steps;
-    //his.getCalories();
+
+    this.getCalories();
   }
 
   getCalories() {

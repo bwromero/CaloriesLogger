@@ -2,5 +2,11 @@
   <button type="submit" class="btn btn-outline-secondary border-0">
     Reset
   </button>
-  <button type="submit" class="btn btn-success ms-1">{{ buttonText }}</button>
+  <button
+    type="submit"
+    class="btn btn-success ms-1"
+    (click)="submitButtonClicked()"
+  >
+    {{ buttonText }}
+  </button>
 </div>

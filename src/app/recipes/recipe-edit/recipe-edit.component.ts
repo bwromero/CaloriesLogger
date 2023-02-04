@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { RecipeService } from 'src/app/services/recipe.service';
+import { Ingredient } from '../model/ingredient.model';
 import { Recipe } from '../model/recipe.model';
 
 @Component({
@@ -8,42 +10,60 @@ import { Recipe } from '../model/recipe.model';
   styleUrls: ['./recipe-edit.component.css'],
 })
 export class RecipeEditComponent implements OnInit {
+  id: number = 0;
   recipeName: string;
   recipeDescription: string;
-  imageUrl: string | ArrayBuffer;
+  imageUrl: string;
   recipeTime: number;
   recipeCalories: number;
   recipe: Recipe;
+  ingridient: string;
+  step: string;
 
-  constructor(private domSanitizer: DomSanitizer) {}
+  ingredients: Ingredient[] = [];
+  steps: string[] = [];
+
+  constructor(
+    private domSanitizer: DomSanitizer,
+    private recipeService: RecipeService
+  ) {}
 
   ngOnInit(): void {}
 
   previewImage(event) {
     const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.imageUrl = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
 
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imageUrl = reader.result;
-      };
-      reader.readAsDataURL(file);
-    } else {
-      this.imageUrl = '';
-    }
+  mockId() {
+    return this.id + 1;
   }
 
   createRecipe() {
     this.recipe = new Recipe(
-      1,
+      this.mockId(),
       this.recipeName,
       this.recipeDescription,
       this.recipeTime,
       this.imageUrl,
-      null,
-      null
+      this.ingredients,
+      this.steps
     );
 
     this.recipe.setCalories(this.recipeCalories);
+
+    this.recipeService.addRecipe(this.recipe);
+  }
+
+  addIngredient() {
+    return 0;
+  }
+
+  addStep() {
+    return 0;
   }
 }
