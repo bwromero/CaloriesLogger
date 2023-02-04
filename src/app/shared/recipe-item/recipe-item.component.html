@@ -1,6 +1,10 @@
 <div class="card border-0" style="height: 360px" (click)="toDetail()">
   <div class="image-container">
-    <img class="card-img-top" [src]="recipe.imagePath" alt="Card image cap" />
+    <img
+      class="card-img-top"
+      [src]="recipe.imagePath"
+      alt="{{ recipe.name }}"
+    />
   </div>
   <title>Recipe</title>
 
