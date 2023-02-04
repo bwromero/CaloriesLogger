@@ -71,6 +71,7 @@
                 class="form-control-file"
                 id="imageInput"
                 accept="image/*"
+                formControlName="imagePath"
                 (change)="previewImage($event)"
               />
             </div>
@@ -148,7 +149,7 @@
     <div class="col">
       <div class="preview-container">
         <img
-          [src]="recipeForm.controls['imageUrl'].value"
+          [src]="recipeForm.controls['imagePath'].value"
           class="img-fluid rounded"
         />
       </div>

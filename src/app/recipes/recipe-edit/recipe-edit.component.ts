@@ -14,7 +14,7 @@ export class RecipeEditComponent implements OnInit {
   recipeForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
-    imageUrl: new FormControl(''),
+    imagePath: new FormControl(''),
     time: new FormControl(''),
     calories: new FormControl(''),
     ingredient: new FormGroup({
@@ -39,7 +39,7 @@ export class RecipeEditComponent implements OnInit {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = (e: any) => {
-      this.recipeForm.controls['imageUrl'].setValue(e.target.result);
+      this.recipeForm.controls['imagePath'].setValue(e.target.result);
     };
     reader.readAsDataURL(file);
   }
