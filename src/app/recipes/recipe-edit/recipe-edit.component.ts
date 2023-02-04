@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { Ingredient } from '../model/ingredient.model';
@@ -10,16 +11,20 @@ import { Recipe } from '../model/recipe.model';
   styleUrls: ['./recipe-edit.component.css'],
 })
 export class RecipeEditComponent implements OnInit {
-  id: number = 0;
-  recipeName: string;
-  recipeDescription: string;
-  imageUrl: string;
-  recipeTime: number;
-  recipeCalories: number;
-  recipe: Recipe;
-  ingridient: string;
-  step: string;
+  recipeForm = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    imageUrl: new FormControl(''),
+    time: new FormControl(''),
+    calories: new FormControl(''),
+    ingredient: new FormGroup({
+      name: new FormControl(''),
+      weight: new FormControl(''),
+    }),
+    step: new FormControl(''),
+  });
 
+  recipe: Recipe;
   ingredients: Ingredient[] = [];
   steps: string[] = [];
 
@@ -34,28 +39,28 @@ export class RecipeEditComponent implements OnInit {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = (e: any) => {
-      this.imageUrl = e.target.result;
+      this.recipeForm.controls['imageUrl'].setValue;
     };
     reader.readAsDataURL(file);
   }
 
   mockId() {
-    return this.id + 1;
+    return Math.random();
   }
 
   createRecipe() {
-    this.recipe = new Recipe(
-      this.mockId(),
-      this.recipeName,
-      this.recipeDescription,
-      this.recipeTime,
-      this.imageUrl,
-      this.ingredients,
-      this.steps
-    );
+    // this.recipe = new Recipe(
+    //   this.mockId(),
+    //   this.recipeName,
+    //   this.recipeDescription,
+    //   this.recipeTime,
+    //   this.imageUrl,
+    //   this.ingredients,
+    //   this.steps
+    // );
+    this.recipe = this.recipeForm.value();
 
-    this.recipe.setCalories(this.recipeCalories);
-
+    this.recipe.id = this.mockId();
     this.recipeService.addRecipe(this.recipe);
   }
 

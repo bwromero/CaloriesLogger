@@ -14,7 +14,7 @@
       <div class="card border-0">
         <div class="card-body">
           <h3 class="card-title text-center">Create Recipe</h3>
-          <form (ngSubmit)="createRecipe()">
+          <form [formGroup]="recipeForm" (ngSubmit)="createRecipe()">
             <div class="col-7 form-group pt-4">
               <label for="recipeName">Name</label>
               <input
@@ -23,7 +23,7 @@
                 id="recipeName"
                 name="recipeName"
                 placeholder="Ex.Overnight Oats"
-                [(ngModel)]="recipeName"
+                formControlName="name"
                 required
               />
             </div>
@@ -34,7 +34,7 @@
                 rows="4"
                 id="recipeDescription"
                 name="recipeDescription"
-                [(ngModel)]="recipeDescription"
+                formControlName="description"
                 placeholder="Describe your recipe"
               ></textarea>
             </div>
@@ -46,7 +46,7 @@
                   class="form-control"
                   id="recipeTime"
                   name="recipeTime"
-                  [(ngModel)]="recipeTime"
+                  formControlName="time"
                   aria-describedby="emailHelp"
                 />
               </div>
@@ -59,7 +59,7 @@
                   type="number"
                   id="recipeCalories"
                   name="recipeCalories"
-                  [(ngModel)]="recipeCalories"
+                  formControlName="calories"
                   class="form-control"
                 />
               </div>
@@ -71,32 +71,33 @@
                 class="form-control-file"
                 id="imageInput"
                 accept="image/*"
+                formControlName="imageUrl"
                 (change)="previewImage($event)"
               />
             </div>
             <!-- ingredients section  -->
-            <div class="row pt-4">
+            <div formGroupName="ingredient" class="row pt-4">
               <h4>Ingredients</h4>
               <div class="col-7">
-                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <label for="ingredientName" class="form-label">Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="exampleInputEmail1"
+                  id="ingredientName"
                   placeholder="Ex. Banana"
-                  aria-describedby="emailHelp"
+                  formControlName="name"
                 />
               </div>
 
               <div class="col-3">
-                <label for="exampleInputEmail1" class="form-label"
+                <label for="ingredientWeight" class="form-label"
                   >Weight (gr)</label
                 >
                 <input
                   type="number"
                   class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
+                  id="ingredientWeight"
+                  formControlName="weight"
                 />
               </div>
               <div class="col align-self-end">
@@ -117,9 +118,9 @@
                 <textarea
                   class="form-control"
                   rows="2"
-                  id="recipeDescription"
-                  name="recipeDescription"
-                  [(ngModel)]="recipeDescription"
+                  id="step"
+                  name="step"
+                  formControlName="step"
                   placeholder="What steps should be taken?"
                 ></textarea>
               </div>
@@ -134,6 +135,8 @@
               </div>
             </div>
             <app-form-buttons [buttonText]="'Create'"> </app-form-buttons>
+
+            {{ recipeForm.value | json }}
           </form>
         </div>
       </div>
@@ -141,7 +144,10 @@
 
     <div class="col">
       <div class="preview-container">
-        <img *ngIf="imageUrl" [src]="imageUrl" class="img-fluid rounded" />
+        <img
+          [src]="recipeForm.controls['imageUrl'].value"
+          class="img-fluid rounded"
+        />
       </div>
     </div>
   </div>
