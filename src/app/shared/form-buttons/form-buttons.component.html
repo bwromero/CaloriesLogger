@@ -1,12 +1,12 @@
 <div class="form-group button-group pt-4">
-  <button type="submit" class="btn btn-outline-secondary border-0">
-    Reset
-  </button>
   <button
     type="submit"
-    class="btn btn-success ms-1"
-    (click)="submitButtonClicked()"
+    class="btn btn-outline-secondary border-0"
+    (click)="resetButtonClicked()"
   >
+    Reset
+  </button>
+  <button type="submit" class="btn btn-success ms-1">
     {{ buttonText }}
   </button>
 </div>

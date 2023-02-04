@@ -7,13 +7,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class FormButtonsComponent implements OnInit {
   @Input() buttonText: string;
-  @Output() submitButtonEmit = new EventEmitter();
+  @Output() resetButton = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  submitButtonClicked() {
-    this.submitButtonEmit.emit(null);
+  resetButtonClicked() {
+    this.resetButton.emit(null);
   }
 }

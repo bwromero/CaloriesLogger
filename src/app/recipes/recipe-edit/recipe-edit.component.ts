@@ -39,7 +39,7 @@ export class RecipeEditComponent implements OnInit {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = (e: any) => {
-      this.recipeForm.controls['imageUrl'].setValue;
+      this.recipeForm.controls['imageUrl'].setValue(e.target.result);
     };
     reader.readAsDataURL(file);
   }
@@ -48,25 +48,18 @@ export class RecipeEditComponent implements OnInit {
     return Math.random();
   }
 
-  createRecipe() {
-    // this.recipe = new Recipe(
-    //   this.mockId(),
-    //   this.recipeName,
-    //   this.recipeDescription,
-    //   this.recipeTime,
-    //   this.imageUrl,
-    //   this.ingredients,
-    //   this.steps
-    // );
-    this.recipe = this.recipeForm.value();
+  resetForm() {
+    this.recipeForm.reset();
+  }
 
+  createRecipe() {
+    this.recipe = { ...this.recipe, ...this.recipeForm.value };
     this.recipe.id = this.mockId();
     this.recipeService.addRecipe(this.recipe);
+    this.resetForm();
   }
 
-  addIngredient() {
-    return 0;
-  }
+  addIngredient() {}
 
   addStep() {
     return 0;
