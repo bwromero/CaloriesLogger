@@ -64,17 +64,16 @@
                 />
               </div>
             </div>
-            <div class="form-group row pt-4">
+            <!-- <div class="form-group row pt-4">
               <label for="imageInput"> <h4>Picture</h4></label>
               <input
                 type="file"
                 class="form-control-file"
                 id="imageInput"
                 accept="image/*"
-                formControlName="imagePath"
-                (change)="previewImage($event)"
+                [(ngModel)]="imageURL"
               />
-            </div>
+            </div> -->
             <!-- ingredients section  -->
             <div formGroupName="ingredient" class="row pt-4">
               <h4>Ingredients</h4>
@@ -139,19 +138,24 @@
               [buttonText]="'Create'"
             >
             </app-form-buttons>
-
-            {{ recipeForm.value | json }}
           </form>
         </div>
       </div>
     </div>
 
     <div class="col">
-      <div class="preview-container">
-        <img
-          [src]="recipeForm.controls['imagePath'].value"
-          class="img-fluid rounded"
+      <div class="form-group row pt-4">
+        <label for="imageInput"> <h4>Picture</h4></label>
+        <input
+          type="file"
+          class="form-control-file"
+          id="imageInput"
+          accept="image/*"
+          (change)="previewImage($event)"
         />
+      </div>
+      <div class="preview-container">
+        <img [src]="imageURL" class="img-fluid rounded" />
       </div>
     </div>
   </div>

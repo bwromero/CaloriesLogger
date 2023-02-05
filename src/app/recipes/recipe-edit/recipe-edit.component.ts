@@ -14,7 +14,7 @@ export class RecipeEditComponent implements OnInit {
   recipeForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
-    imagePath: new FormControl(''),
+    imagePath: new FormControl(null),
     time: new FormControl(''),
     calories: new FormControl(''),
     ingredient: new FormGroup({
@@ -27,6 +27,7 @@ export class RecipeEditComponent implements OnInit {
   recipe: Recipe;
   ingredients: Ingredient[] = [];
   steps: string[] = [];
+  imageURL: string;
 
   constructor(
     private domSanitizer: DomSanitizer,
@@ -36,12 +37,11 @@ export class RecipeEditComponent implements OnInit {
   ngOnInit(): void {}
 
   previewImage(event) {
-    const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = (e: any) => {
-      this.recipeForm.controls['imagePath'].setValue(e.target.result);
+      this.imageURL = e.target.result;
     };
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(event.target.files[0]);
   }
 
   mockId() {
@@ -50,11 +50,14 @@ export class RecipeEditComponent implements OnInit {
 
   resetForm() {
     this.recipeForm.reset();
+    this.imageURL = '';
+    (document.getElementById('imageInput') as HTMLInputElement).value = null;
   }
 
   createRecipe() {
     this.recipe = { ...this.recipe, ...this.recipeForm.value };
     this.recipe.id = this.mockId();
+    this.recipe.imagePath = this.imageURL;
     this.recipeService.addRecipe(this.recipe);
     this.resetForm();
   }

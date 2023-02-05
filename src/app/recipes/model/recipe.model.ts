@@ -8,7 +8,7 @@ export class Recipe {
   public name: string;
   public description: string;
   public time: number;
-  public imagePath: string;
+  public imagePath: File | string;
   public ingredients: Ingredient[];
   public calories = 0;
   public steps: string[];
@@ -18,7 +18,7 @@ export class Recipe {
     name: string,
     description: string,
     time: number,
-    imagePath: string,
+    imagePath: File,
     ingredients: Ingredient[] | null,
     steps: string[] | null
   ) {
