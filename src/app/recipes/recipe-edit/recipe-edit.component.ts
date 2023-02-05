@@ -45,7 +45,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   mockId() {
-    return Math.random();
+    return Math.floor(Math.random() * 100000);
   }
 
   resetForm() {

@@ -9,13 +9,13 @@
     </button>
   </div>
 
-  <div class="row row-cols-1 row-cols-sm-3 justify-content-between py-3">
-    <div class="col-12 col-sm-7 col-md-6 col-lg-6">
+  <div class="row justify-content-center py-3">
+    <div class="col-12 col-sm-7 col-md-6 col-lg-8">
       <div class="card border-0">
         <div class="card-body">
           <h3 class="card-title text-center">Create Recipe</h3>
           <form [formGroup]="recipeForm" (ngSubmit)="createRecipe()">
-            <div class="col-7 form-group pt-4">
+            <div class="col-5 form-group pt-4">
               <label for="recipeName">Name</label>
               <input
                 type="text"
@@ -39,7 +39,7 @@
               ></textarea>
             </div>
             <div class="row">
-              <div class="form-group col-3">
+              <div class="form-group col-2">
                 <label for="recipeTime" class="form-label">Time (min)</label>
                 <input
                   type="number"
@@ -51,7 +51,7 @@
                 />
               </div>
 
-              <div class="form-group col-3">
+              <div class="form-group col-2">
                 <label class="form-label" for="recipeCalories"
                   >Calories (kcal)</label
                 >
@@ -68,7 +68,7 @@
             <!-- ingredients section  -->
             <div formGroupName="ingredient" class="row pt-4">
               <h4>Ingredients</h4>
-              <div class="col-7">
+              <div class="col-5">
                 <label for="ingredientName" class="form-label">Name</label>
                 <input
                   type="text"
@@ -79,7 +79,7 @@
                 />
               </div>
 
-              <div class="col-3">
+              <div class="col-2">
                 <label for="ingredientWeight" class="form-label"
                   >Weight (gr)</label
                 >
@@ -102,19 +102,21 @@
             </div>
 
             <!-- steps section -->
-            <div class="row py-4">
+            <div class="row pt-4">
               <h4>Steps</h4>
-              <div class="col-10">
+              <div class="col">
                 <textarea
                   class="form-control"
-                  rows="2"
+                  rows="4"
                   id="step"
                   name="step"
                   formControlName="step"
                   placeholder="What steps should be taken?"
                 ></textarea>
               </div>
-              <div class="col align-self-end">
+            </div>
+            <div class="row justify-content-end pt-3">
+              <div class="col-auto">
                 <button
                   type="button"
                   class="btn btn-outline-secondary border-0"
@@ -124,16 +126,27 @@
                 </button>
               </div>
             </div>
-            <div class="form-group row">
+
+            <!-- picture -->
+            <div class="form-group row justify-content-center py-4">
               <label for="imageInput"> <h4>Picture</h4></label>
               <input
                 type="file"
-                class="form-control-file"
+                class="form-control-file pb-4"
                 id="imageInput"
                 accept="image/*"
                 (change)="previewImage($event)"
               />
+              <div class="image-container px-0" *ngIf="imageURL">
+                <img
+                  [src]="imageURL"
+                  alt="imageURL"
+                  class="img-fluid rounded"
+                />
+              </div>
             </div>
+            <!-- picture preview -->
+
             <app-form-buttons
               (resetButton)="resetForm()"
               [buttonText]="'Create'"
@@ -141,17 +154,6 @@
             </app-form-buttons>
           </form>
         </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-12 col-sm-5 col-md-5 col-lg-5 image-container">
-      <div class="preview-container">
-        <img
-          *ngIf="imageURL"
-          [src]="imageURL"
-          alt="imageURL"
-          class="img-fluid rounded"
-        />
       </div>
     </div>
   </div>
