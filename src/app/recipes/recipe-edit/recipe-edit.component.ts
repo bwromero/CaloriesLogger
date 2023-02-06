@@ -51,7 +51,7 @@ export class RecipeEditComponent implements OnInit {
       time: ['', Validators.required],
       calories: ['', Validators.required],
       ingredientName: [''],
-      ingredientWeight: ['', Validators.required],
+      ingredientWeight: [''],
       step: ['', Validators.required],
     });
   }
@@ -69,6 +69,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   resetForm() {
+    this.submitted = false;
     this.recipeForm.reset();
     this.imageURL = '';
     (document.getElementById('imageInput') as HTMLInputElement).value = null;
@@ -76,7 +77,9 @@ export class RecipeEditComponent implements OnInit {
 
   createRecipe() {
     this.submitted = true;
-
+    if (this.recipeForm.invalid) {
+      return;
+    }
     this.recipe = { ...this.recipe, ...this.recipeForm.value };
     this.recipe.id = this.mockId();
     this.recipe.imagePath = this.imageURL;
