@@ -1,7 +1,4 @@
-.item-icons-size {
-  font-size: xx-large;
-}
-
-.icon-span-size {
-  font-size: xx-large;
+img {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
 }
