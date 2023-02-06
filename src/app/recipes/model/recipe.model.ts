@@ -18,7 +18,7 @@ export class Recipe {
     name: string,
     description: string,
     time: number,
-    imagePath: File,
+    imagePath: File | string,
     ingredients: Ingredient[] | null,
     steps: string[] | null
   ) {
