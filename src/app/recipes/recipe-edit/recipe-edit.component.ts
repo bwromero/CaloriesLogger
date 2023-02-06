@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { Ingredient } from '../model/ingredient.model';
@@ -11,30 +17,44 @@ import { Recipe } from '../model/recipe.model';
   styleUrls: ['./recipe-edit.component.css'],
 })
 export class RecipeEditComponent implements OnInit {
-  recipeForm = new FormGroup({
-    name: new FormControl(''),
-    description: new FormControl(''),
-    imagePath: new FormControl(null),
-    time: new FormControl(''),
-    calories: new FormControl(''),
-    ingredient: new FormGroup({
-      name: new FormControl(''),
-      weight: new FormControl(''),
-    }),
-    step: new FormControl(''),
-  });
+  // recipeForm = new FormGroup({
+  //   name: new FormControl(''),
+  //   description: new FormControl(''),
+  //   imagePath: new FormControl(null),
+  //   time: new FormControl(''),
+  //   calories: new FormControl(''),
+  //   ingredient: new FormGroup({
+  //     name: new FormControl(''),
+  //     weight: new FormControl(''),
+  //   }),
+  //   step: new FormControl(''),
+  // });
+
+  recipeForm: FormGroup;
 
   recipe: Recipe;
   ingredients: Ingredient[] = [];
   steps: string[] = [];
   imageURL: string;
+  submitted: boolean = false;
 
   constructor(
-    private domSanitizer: DomSanitizer,
+    private formBuilder: FormBuilder,
     private recipeService: RecipeService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recipeForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      imagePath: [''],
+      time: ['', Validators.required],
+      calories: ['', Validators.required],
+      ingredientName: [''],
+      ingredientWeight: ['', Validators.required],
+      step: ['', Validators.required],
+    });
+  }
 
   previewImage(event) {
     const reader = new FileReader();
@@ -55,6 +75,8 @@ export class RecipeEditComponent implements OnInit {
   }
 
   createRecipe() {
+    this.submitted = true;
+
     this.recipe = { ...this.recipe, ...this.recipeForm.value };
     this.recipe.id = this.mockId();
     this.recipe.imagePath = this.imageURL;
@@ -66,5 +88,9 @@ export class RecipeEditComponent implements OnInit {
 
   addStep() {
     return 0;
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.recipeForm.controls;
   }
 }
