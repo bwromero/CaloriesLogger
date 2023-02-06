@@ -6,7 +6,7 @@
       </button>
     </div>
     <div class="col">
-      <div class="row row-cols-1 row-cols-sm-2 py-4">
+      <div class="row row-cols-1 row-cols-md-2 py-4">
         <div *ngIf="recipe.imagePath" class="col">
           <img
             class="card-img-top"
@@ -15,7 +15,7 @@
           />
         </div>
         <div class="col">
-          <h1 class="fw-bold text-center fst-italic">{{ recipe.name }}</h1>
+          <h3 class="fw-bold text-center fst-italic">{{ recipe.name }}</h3>
           <div class="row row-cols-1 row-cols-sm-3 py-3">
             <div class="col">
               <i class="bi bi-alarm"></i>
@@ -40,14 +40,14 @@
     </div>
 
     <div class="col">
-      <h2>Ingredients</h2>
+      <h4>Ingredients</h4>
       <ul class="row row-cols-1 row-cols-sm-3 g-1">
         <li class="col" *ngFor="let ingredient of recipe.ingredients">
           {{ ingredient.name }} x {{ ingredient.amount }}
         </li>
       </ul>
 
-      <h2>Directions</h2>
+      <h4>Directions</h4>
 
       <div *ngFor="let step of recipe.steps; let i = index">
         <h4>Step {{ i + 1 }}</h4>

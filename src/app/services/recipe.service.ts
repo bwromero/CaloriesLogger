@@ -17,20 +17,20 @@ export class RecipeService {
       30,
       'https://s-media-cache-ak0.pinimg.com/originals/63/6d/8d/636d8d6cfbf1862e5ad5f89571c55430.jpg',
       [
-        new Ingredient('Chicken Portions', 4, 50, 60),
-        new Ingredient('Chinese spices', 1, 55, 555),
-        new Ingredient('Chicken Portions', 4, 50, 60),
-        new Ingredient('Chinese spices', 1, 55, 555),
-        new Ingredient('Chicken Portions', 4, 50, 60),
-        new Ingredient('Chinese spices', 1, 55, 555),
-        new Ingredient('Chicken Portions', 4, 50, 60),
-        new Ingredient('Chinese spices', 1, 55, 555),
-        new Ingredient('Chicken Portions', 4, 50, 60),
-        new Ingredient('Chinese spices', 1, 55, 555),
-        new Ingredient('Chicken Portions', 4, 50, 60),
-        new Ingredient('Chinese spices', 1, 55, 555),
-        new Ingredient('Chicken Portions', 4, 50, 60),
-        new Ingredient('Chinese spices', 1, 55, 555),
+        new Ingredient('Ingredient 1', 4, 50, 60),
+        new Ingredient('Ingredient 2', 1, 55, 555),
+        new Ingredient('Ingredient 3', 4, 50, 60),
+        new Ingredient('Ingredient 4', 1, 55, 555),
+        new Ingredient('Ingredient 5', 4, 50, 60),
+        new Ingredient('Ingredient 6', 1, 55, 555),
+        new Ingredient('Ingredient 7', 4, 50, 60),
+        new Ingredient('Ingredient 8', 1, 55, 555),
+        new Ingredient('Ingredient 9', 4, 50, 60),
+        new Ingredient('Ingredient 10', 1, 55, 555),
+        new Ingredient('Ingredient 11', 4, 50, 60),
+        new Ingredient('Ingredient 12', 1, 55, 555),
+        new Ingredient('Ingredient 13', 4, 50, 60),
+        new Ingredient('Ingredient 14', 1, 55, 555),
       ],
       [
         'Veniam consequat deserunt laboris in excepteur nostrud laboris anim aliquip sint enim ipsum est. Do sint quis aliquip labore in eu esse reprehenderit excepteur cupidatat et. Aute adipisicing adipisicing aliquip dolor anim enim enim proident ipsum.',
@@ -93,7 +93,6 @@ export class RecipeService {
 
   //finds a recipe by id
   getRecipe(id: number) {
-    //return this.recipes[index - 1];
     let recipe = this.recipes.find((recipe) => recipe.id === id);
     return recipe;
   }
