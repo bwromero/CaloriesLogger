@@ -40,16 +40,17 @@
     </div>
 
     <div class="col">
-      <h4>Ingredients</h4>
-      <ul class="row row-cols-1 row-cols-sm-3 g-1">
+      <h4 *ngIf="recipe.ingredients">Ingredients</h4>
+
+      <ul *ngIf="recipe.ingredients" class="row row-cols-1 row-cols-sm-3 g-1">
         <li class="col" *ngFor="let ingredient of recipe.ingredients">
           {{ ingredient.name }} x {{ ingredient.amount }}
         </li>
       </ul>
 
-      <h4>Directions</h4>
-
       <div *ngFor="let step of recipe.steps; let i = index">
+        <h4>Directions</h4>
+
         <h4>Step {{ i + 1 }}</h4>
         <p>
           {{ step }}
