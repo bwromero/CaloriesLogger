@@ -17,19 +17,6 @@ import { Recipe } from '../model/recipe.model';
   styleUrls: ['./recipe-edit.component.css'],
 })
 export class RecipeEditComponent implements OnInit {
-  // recipeForm = new FormGroup({
-  //   name: new FormControl(''),
-  //   description: new FormControl(''),
-  //   imagePath: new FormControl(null),
-  //   time: new FormControl(''),
-  //   calories: new FormControl(''),
-  //   ingredient: new FormGroup({
-  //     name: new FormControl(''),
-  //     weight: new FormControl(''),
-  //   }),
-  //   step: new FormControl(''),
-  // });
-
   recipeForm: FormGroup;
 
   recipe: Recipe;
