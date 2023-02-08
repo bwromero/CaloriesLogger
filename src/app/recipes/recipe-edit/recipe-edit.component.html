@@ -187,13 +187,13 @@
                   name="step"
                   formControlName="step"
                   placeholder="What steps should be taken?"
-                  [ngClass]="{ 'is-invalid': submitted && f.step.errors }"
+                  [ngClass]="{ 'is-invalid': submitted && steps.length === 0 }"
                 ></textarea>
                 <div
-                  *ngIf="submitted && f.step.errors"
+                  *ngIf="submitted && steps.length === 0"
                   class="invalid-feedback"
                 >
-                  <div *ngIf="f.step.errors.required">Step is required</div>
+                  <div *ngIf="steps.length === 0">Step is required</div>
                 </div>
               </div>
             </div>

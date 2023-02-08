@@ -39,7 +39,7 @@ export class RecipeEditComponent implements OnInit {
       calories: ['', Validators.required],
       ingredientName: [''],
       ingredientWeight: [''],
-      step: ['', Validators.required],
+      step: [''],
     });
   }
 
@@ -62,6 +62,21 @@ export class RecipeEditComponent implements OnInit {
     (document.getElementById('imageInput') as HTMLInputElement).value = null;
   }
 
+  addIngredient() {}
+
+  addStep() {
+    if (this.recipeForm.get('step').value === '') {
+      return;
+    }
+    this.steps.push(this.recipeForm.get('step').value);
+    this.recipeForm.get('step').setValue('');
+    console.log(this.steps);
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.recipeForm.controls;
+  }
+
   createRecipe() {
     this.submitted = true;
     if (this.recipeForm.invalid) {
@@ -70,17 +85,8 @@ export class RecipeEditComponent implements OnInit {
     this.recipe = { ...this.recipe, ...this.recipeForm.value };
     this.recipe.id = this.mockId();
     this.recipe.imagePath = this.imageURL;
+    this.recipe.steps = this.steps;
     this.recipeService.addRecipe(this.recipe);
     this.resetForm();
-  }
-
-  addIngredient() {}
-
-  addStep() {
-    return 0;
-  }
-
-  get f(): { [key: string]: AbstractControl } {
-    return this.recipeForm.controls;
   }
 }
