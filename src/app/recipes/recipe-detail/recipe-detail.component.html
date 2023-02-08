@@ -32,7 +32,7 @@
               <span class="px-1 fst-italic">{{ recipe.calories }} kcal</span>
             </div>
           </div>
-          <p class="pt-1 pt-sm-3 pt-md-4 pt-lg-5">
+          <p class="pt-1 pt-sm-3 pt-md-4 pt-lg-5 justify">
             {{ recipe.description }}
           </p>
         </div>
@@ -51,7 +51,7 @@
       <h4>Directions</h4>
       <div *ngFor="let step of recipe.steps; let i = index">
         <h4>Step {{ i + 1 }}</h4>
-        <p>
+        <p class="justify">
           {{ step }}
         </p>
       </div>

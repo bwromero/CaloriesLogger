@@ -71,10 +71,14 @@
                 name="recipeName"
                 placeholder="Ex.Overnight Oats"
                 formControlName="name"
+                [maxLength]="60"
                 [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
               />
               <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                 <div *ngIf="f.name.errors.required">Name is required</div>
+              </div>
+              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.minlength">Name is too short</div>
               </div>
             </div>
             <div class="col form-group">
@@ -86,6 +90,7 @@
                 name="recipeDescription"
                 formControlName="description"
                 placeholder="Describe your recipe"
+                [maxLength]="1500"
                 [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
               >
               </textarea>
@@ -95,6 +100,15 @@
               >
                 <div *ngIf="f.description.errors.required">
                   Description is required
+                </div>
+              </div>
+
+              <div
+                *ngIf="submitted && f.description.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.description.errors.minlength">
+                  Description is too short
                 </div>
               </div>
             </div>
@@ -107,6 +121,7 @@
                   id="recipeTime"
                   name="recipeTime"
                   formControlName="time"
+                  [maxLength]="500"
                   [ngClass]="{ 'is-invalid': submitted && f.time.errors }"
                 />
                 <div
@@ -150,6 +165,7 @@
                   class="form-control"
                   id="ingredientName"
                   placeholder="Ex. Banana"
+                  [maxLength]="60"
                   formControlName="ingredientName"
                 />
               </div>
@@ -162,6 +178,7 @@
                   type="number"
                   class="form-control"
                   id="ingredientWeight"
+                  [maxLength]="12"
                   formControlName="ingredientWeight"
                 />
               </div>
@@ -187,6 +204,7 @@
                   name="step"
                   formControlName="step"
                   placeholder="What steps should be taken?"
+                  [maxLength]="1500"
                   [ngClass]="{ 'is-invalid': submitted && steps.length === 0 }"
                 ></textarea>
                 <div

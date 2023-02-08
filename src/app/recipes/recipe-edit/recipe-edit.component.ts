@@ -32,8 +32,8 @@ export class RecipeEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      description: ['', [Validators.required, Validators.minLength(12)]],
       imagePath: [''],
       time: ['', Validators.required],
       calories: ['', Validators.required],
