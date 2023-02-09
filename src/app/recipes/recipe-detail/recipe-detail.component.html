@@ -5,8 +5,9 @@
         Back
       </button>
     </div>
-    <div class="col">
-      <div class="row row-cols-1 row-cols-md-2 py-4">
+
+    <div class="col pt-4">
+      <div class="row row-cols-1 row-cols-md-2">
         <div *ngIf="recipe.imagePath" class="col">
           <img
             class="card-img-top"
@@ -39,17 +40,20 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col pt-4">
       <h4 *ngIf="recipe.ingredients">Ingredients</h4>
 
-      <ul *ngIf="recipe.ingredients" class="row row-cols-1 row-cols-sm-3 g-1">
+      <ul
+        *ngIf="recipe.ingredients"
+        class="row row-cols-1 row-cols-sm-3 g-1 pt-2"
+      >
         <li class="col" *ngFor="let ingredient of recipe.ingredients">
           {{ ingredient.name }} x {{ ingredient.amount }}
         </li>
       </ul>
 
-      <h4>Directions</h4>
-      <div *ngFor="let step of recipe.steps; let i = index">
+      <h4 class="pt-4">Directions</h4>
+      <div class="pt-2" *ngFor="let step of recipe.steps; let i = index">
         <h4>Step {{ i + 1 }}</h4>
         <p class="justify">
           {{ step }}

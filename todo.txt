@@ -3,8 +3,11 @@ Features:
 - Add api to query ingredients
 - The app must show multiple users recipes
 - Make it possible to share recipes and maybe the bmi scores or weight loss progress ecc
+- add alert dialog ecc of success or error in recipe creation
+- implement crud of calories log
 
 Fixes: 
 
 - Fix tdee formula
-- 
+- recipedatil: fix image same row as description
+- rcipeEdit: add control to numericinputs if negativ
