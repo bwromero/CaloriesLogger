@@ -27,6 +27,7 @@ export class RecipeEditComponent implements OnInit {
   units = ['kg', 'lb', 'oz', 'gr', 'mg', 'ml'];
   selectedUnit = 'gr';
   totalCalories = 0;
+  addIngredientClicked: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -68,6 +69,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   addIngredient() {
+    this.addIngredientClicked = true;
     // checks if the inputs are filled
     if (
       this.recipeForm.get('ingredientName').value === '' ||
@@ -75,7 +77,6 @@ export class RecipeEditComponent implements OnInit {
     ) {
       return;
     }
-
     // gets the data from the form
     let ingredientName = this.recipeForm.get('ingredientName').value;
     let ingredientWeight = this.recipeForm.get('ingredientWeight').value;
@@ -90,10 +91,11 @@ export class RecipeEditComponent implements OnInit {
     this.ingredients.push(newIngredient); //push the new recipe
     this.totalCalories += newIngredient.getCalories(); // add the calories from the new ingridient  to the total calories
     this.recipeForm.get('calories').setValue(this.totalCalories); //sets the total calories to the calories input
-
     //cleans ingredient inputs
     this.recipeForm.get('ingredientName').setValue('');
     this.recipeForm.get('ingredientWeight').setValue('');
+
+    this.addIngredientClicked = false;
   }
 
   addStep() {
