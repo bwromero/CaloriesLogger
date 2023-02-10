@@ -6,6 +6,7 @@
       </button>
     </div>
 
+    <!-- recipe information  -->
     <div class="col pt-4">
       <div class="row row-cols-1 row-cols-md-2">
         <div *ngIf="recipe.imagePath" class="col">
@@ -15,7 +16,7 @@
             alt="{{ recipe.name }}"
           />
         </div>
-        <div class="col">
+        <div class="col pt-4 pt-md-0">
           <h3 class="fw-bold text-center fst-italic">{{ recipe.name }}</h3>
           <div class="row row-cols-1 row-cols-sm-3 py-3">
             <div class="col">
@@ -40,6 +41,7 @@
       </div>
     </div>
 
+    <!-- ingredients sections -->
     <div class="col pt-4">
       <h4 *ngIf="recipe.ingredients">Ingredients</h4>
 
@@ -53,14 +55,7 @@
         </div>
       </div>
 
-      <!-- <ul *ngFor="let row of rows" class="row g-1 pt-2">
-        <li class="col" *ngFor="let ingredient of row; let i = index">
-          <div>
-            {{ ingredient.name }} {{ ingredient.weight }}{{ ingredient.unit }}
-          </div>
-        </li>
-      </ul> -->
-
+      <!-- directions section -->
       <h4 class="pt-4">Directions</h4>
       <div class="pt-2" *ngFor="let step of recipe.steps; let i = index">
         <h4>Step {{ i + 1 }}</h4>
