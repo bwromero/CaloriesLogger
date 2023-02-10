@@ -6,7 +6,6 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { Ingredient } from '../model/ingredient.model';
 import { Recipe } from '../model/recipe.model';
