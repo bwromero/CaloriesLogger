@@ -43,14 +43,23 @@
     <div class="col pt-4">
       <h4 *ngIf="recipe.ingredients">Ingredients</h4>
 
-      <ul
-        *ngIf="recipe.ingredients"
-        class="row row-cols-1 row-cols-sm-3 g-1 pt-2"
-      >
-        <li class="col" *ngFor="let ingredient of recipe.ingredients">
-          {{ ingredient.name }} {{ ingredient.weight }}{{ ingredient.unit }}
+      <div class="container pt-2">
+        <div class="row">
+          <div class="col-auto" *ngFor="let row of rows">
+            <li class="pb-2" *ngFor="let ingredient of row; let i = index">
+              {{ ingredient.name }} {{ ingredient.weight }}{{ ingredient.unit }}
+            </li>
+          </div>
+        </div>
+      </div>
+
+      <!-- <ul *ngFor="let row of rows" class="row g-1 pt-2">
+        <li class="col" *ngFor="let ingredient of row; let i = index">
+          <div>
+            {{ ingredient.name }} {{ ingredient.weight }}{{ ingredient.unit }}
+          </div>
         </li>
-      </ul>
+      </ul> -->
 
       <h4 class="pt-4">Directions</h4>
       <div class="pt-2" *ngFor="let step of recipe.steps; let i = index">

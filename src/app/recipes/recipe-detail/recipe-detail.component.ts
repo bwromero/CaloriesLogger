@@ -29,4 +29,16 @@ export class RecipeDetailComponent implements OnInit {
       });
     this.recipe = this.recipeService.getRecipe(this.recipeId);
   }
+
+  get rows() {
+    const rowCount = Math.ceil(this.recipe.ingredients.length / 3);
+    const rows = [];
+    for (let i = 0; i < rowCount; i++) {
+      const startIndex = i * 5;
+      const endIndex = startIndex + 5;
+      const row = this.recipe.ingredients.slice(startIndex, endIndex);
+      rows.push(row);
+    }
+    return rows;
+  }
 }
