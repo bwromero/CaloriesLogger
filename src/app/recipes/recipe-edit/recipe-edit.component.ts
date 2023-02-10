@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { Ingredient } from '../model/ingredient.model';
 import { Recipe } from '../model/recipe.model';
@@ -26,7 +27,8 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -87,5 +89,6 @@ export class RecipeEditComponent implements OnInit {
     this.recipe.steps = this.steps;
     this.recipeService.addRecipe(this.recipe);
     this.resetForm();
+    this.router.navigate(['/recipes']);
   }
 }

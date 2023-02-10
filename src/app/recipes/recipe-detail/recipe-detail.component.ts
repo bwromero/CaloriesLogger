@@ -31,6 +31,9 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   get rows() {
+    if (this.recipe.ingredients === undefined) {
+      return;
+    }
     const rowCount = Math.ceil(this.recipe.ingredients.length / 3);
     const rows = [];
     for (let i = 0; i < rowCount; i++) {
