@@ -10,3 +10,6 @@ img {
 .justify {
   text-align: justify;
 }
+.card {
+  box-shadow: 0 -4px 8px 0 hsla(0, 0%, 0%, 0.2);
+}
