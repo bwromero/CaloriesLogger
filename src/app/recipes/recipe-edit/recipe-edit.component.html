@@ -156,7 +156,7 @@
             <!-- ingredients section  -->
             <div class="row pt-4">
               <h4>Ingredients</h4>
-              <div class="col-5">
+              <div class="form-group col-5">
                 <label for="ingredientName" class="form-label">Name</label>
                 <input
                   type="text"
@@ -168,17 +168,27 @@
                 />
               </div>
 
-              <div class="col-2">
-                <label for="ingredientWeight" class="form-label"
-                  >Weight (gr)</label
-                >
+              <div class="form-group col-2">
+                <label for="ingredientWeight" class="form-label">Weight </label>
                 <input
                   type="number"
                   class="form-control"
                   id="ingredientWeight"
+                  placeholder="250"
                   [maxLength]="12"
                   formControlName="ingredientWeight"
                 />
+              </div>
+              <div class="form-group col-auto align-self-end">
+                <select
+                  class="form-control form-select"
+                  id="weightUnit"
+                  formControlName="ingredientUnit"
+                >
+                  <option *ngFor="let unit of units" [value]="unit">
+                    {{ unit }}
+                  </option>
+                </select>
               </div>
               <div class="col align-self-end">
                 <button

@@ -24,6 +24,8 @@ export class RecipeEditComponent implements OnInit {
   steps: string[] = [];
   imageURL: string;
   submitted: boolean = false;
+  units = ['kg', 'lb', 'oz', 'gr', 'mg', 'ml'];
+  selectedUnit = 'gr';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,6 +42,7 @@ export class RecipeEditComponent implements OnInit {
       calories: ['', Validators.required],
       ingredientName: [''],
       ingredientWeight: [''],
+      ingredientUnit: [this.selectedUnit],
       step: [''],
     });
   }
@@ -63,7 +66,11 @@ export class RecipeEditComponent implements OnInit {
     (document.getElementById('imageInput') as HTMLInputElement).value = null;
   }
 
-  addIngredient() {}
+  addIngredient() {
+    if (this.recipeForm.get('step').value === '') {
+      return;
+    }
+  }
 
   addStep() {
     if (this.recipeForm.get('step').value === '') {
