@@ -1,13 +1,22 @@
 export class Ingredient {
-  public name: string;
-  public amount: number;
-  public weight: number;
-  public calories: number;
+  name: string;
+  weight: number;
+  unit: string;
+  caloriesPerUnit: number;
 
-  constructor(name: string, amount: number, weight: number, calories: number) {
+  constructor(
+    name: string,
+    weight: number,
+    unit: string,
+    caloriesPerUnit: number
+  ) {
     this.name = name;
-    this.amount = amount;
     this.weight = weight;
-    this.calories = calories;
+    this.unit = unit;
+    this.caloriesPerUnit = caloriesPerUnit;
+  }
+
+  getCalories(): number {
+    return this.weight * this.caloriesPerUnit;
   }
 }

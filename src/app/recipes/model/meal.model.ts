@@ -10,12 +10,12 @@ export class Meal {
     this.calories = amount;
     this.calories = amount;
     this.ingredients = ingredients;
-    this.calculateCalories();
+    // this.calculateCalories();
   }
 
-  public calculateCalories() {
-    this.ingredients.forEach((ingredient) => {
-      this.calories += ingredient.calories;
-    });
-  }
+  // public calculateCalories() {
+  //   this.ingredients.forEach((ingredient) => {
+  //     this.calories += ingredient.calories;
+  //   });
+  // }
 }

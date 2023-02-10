@@ -1,8 +1,5 @@
 import { Ingredient } from './ingredient.model';
 
-/**
- * Recipe blueprint
- */
 export class Recipe {
   public id: number;
   public name: string;
@@ -35,7 +32,7 @@ export class Recipe {
 
   getCalories() {
     this.ingredients.forEach((ingredient) => {
-      this.calories += ingredient.calories;
+      this.calories = ingredient.getCalories();
     });
   }
 

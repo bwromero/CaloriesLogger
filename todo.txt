@@ -9,5 +9,4 @@ Features:
 Fixes: 
 
 - Fix tdee formula
-- recipedatil: fix image same row as description
-- rcipeEdit: add control to numericinputs if negativ
+- Calories burned : inputs must be visible based on acitivity picked by user
