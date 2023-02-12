@@ -142,6 +142,7 @@
                   formControlName="calories"
                   class="form-control"
                   [ngClass]="{ 'is-invalid': submitted && f.calories.errors }"
+                  (input)="onInput()"
                 />
                 <div
                   *ngIf="submitted && f.calories.errors"
@@ -153,7 +154,7 @@
                 </div>
               </div>
 
-              <div class="col-auto align-self-end">
+              <div class="col-auto align-self-end pb-2">
                 <i
                   class="bi bi-info-circle"
                   placement="right"

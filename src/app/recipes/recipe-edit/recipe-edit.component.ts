@@ -28,6 +28,7 @@ export class RecipeEditComponent implements OnInit {
   selectedUnit = 'gr';
   totalCalories = 0;
   addIngredientClicked: boolean = false;
+  enteredCaloriesManually: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -68,6 +69,10 @@ export class RecipeEditComponent implements OnInit {
     (document.getElementById('imageInput') as HTMLInputElement).value = null;
   }
 
+  onInput() {
+    this.enteredCaloriesManually = true;
+  }
+
   addIngredient() {
     this.addIngredientClicked = true;
     // checks if the inputs are filled
@@ -77,6 +82,7 @@ export class RecipeEditComponent implements OnInit {
     ) {
       return;
     }
+
     // gets the data from the form
     let ingredientName = this.recipeForm.get('ingredientName').value;
     let ingredientWeight = this.recipeForm.get('ingredientWeight').value;
@@ -85,15 +91,21 @@ export class RecipeEditComponent implements OnInit {
       ingredientName,
       ingredientWeight,
       ingredientUnit,
-      7
+      1
     );
 
     this.ingredients.push(newIngredient); //push the new recipe
-    this.totalCalories += newIngredient.getCalories(); // add the calories from the new ingridient  to the total calories
-    this.recipeForm.get('calories').setValue(this.totalCalories); //sets the total calories to the calories input
+    if (this.enteredCaloriesManually) {
+      this.recipeForm.get('calories').setValue('');
+      this.enteredCaloriesManually = false;
+    }
+    this.totalCalories += newIngredient.getCalories(); // add the calories from the new ingredient to the total calories
     //cleans ingredient inputs
     this.recipeForm.get('ingredientName').setValue('');
     this.recipeForm.get('ingredientWeight').setValue('');
+
+    (this.recipeForm.get('calories') as FormControl).disable();
+    this.recipeForm.get('calories').setValue(this.totalCalories); //sets the total calories to the calories input
 
     this.addIngredientClicked = false;
   }
@@ -118,9 +130,13 @@ export class RecipeEditComponent implements OnInit {
     }
     this.recipe = { ...this.recipe, ...this.recipeForm.value };
     this.recipe.id = this.mockId();
+    if (this.totalCalories !== 0) {
+      this.recipe.calories = this.totalCalories;
+    }
     this.recipe.imagePath = this.imageURL;
     this.recipe.steps = this.steps;
     this.recipeService.addRecipe(this.recipe);
+    this.recipe.ingredients = this.ingredients;
     this.resetForm();
     this.router.navigate(['/recipes']);
   }
