@@ -25,6 +25,7 @@ import {
   NgbDateParserFormatter,
   NgbDatepickerModule,
   NgbModule,
+  NgbNavModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { DatepickerRangePopupComponent } from './shared/datepicker-range-popup/datepicker-range-popup.component';
 
@@ -65,6 +66,7 @@ import { FormButtonsComponent } from './shared/form-buttons/form-buttons.compone
     NgbModule,
     NgbDatepickerModule,
     FormsModule,
+    NgbNavModule,
   ],
   providers: [
     {

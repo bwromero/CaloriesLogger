@@ -64,8 +64,24 @@
 
       <div class="card border-0">
         <div class="card-body">
-          <h2 class="card-title text-center">Daily calories</h2>
-          <h1 class="display-4 text-center">5000 Kcal</h1>
+          <!-- <h2 class="card-title text-center">Daily calories</h2>
+          <h1 class="display-4 text-center">5000 Kcal</h1> -->
+          <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+            <li [ngbNavItem]="1">
+              <a ngbNavLink>Daily</a>
+              <ng-template ngbNavContent> </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+              <a ngbNavLink>Weekly</a>
+              <ng-template ngbNavContent> </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+              <a ngbNavLink>Monthly</a>
+              <ng-template ngbNavContent> </ng-template>
+            </li>
+          </ul>
+
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
         </div>
       </div>
     </div>

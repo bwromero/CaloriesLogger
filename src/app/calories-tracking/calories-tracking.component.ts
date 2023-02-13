@@ -10,6 +10,7 @@ import { Meal } from '../recipes/model/meal.model';
 })
 export class CaloriesTrackingComponent implements OnInit {
   meals: Meal[] = [];
+  active = 1;
 
   // ingredients: Ingredient[] = [
   //   { name: 'Oats', amount: 5, weight: 200, calories: 235 },
